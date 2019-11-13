@@ -15,6 +15,7 @@
 		74FEA7DA237C2FD1000770D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74FEA7D8237C2FD1000770D7 /* LaunchScreen.storyboard */; };
 		74FEA7E5237C2FD1000770D7 /* MusiqueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FEA7E4237C2FD1000770D7 /* MusiqueTests.swift */; };
 		74FEA7F0237C2FD1000770D7 /* MusiqueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FEA7EF237C2FD1000770D7 /* MusiqueUITests.swift */; };
+		74FEA7FE237C38B7000770D7 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FEA7FD237C38B7000770D7 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		74FEA7EB237C2FD1000770D7 /* MusiqueUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusiqueUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		74FEA7EF237C2FD1000770D7 /* MusiqueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusiqueUITests.swift; sourceTree = "<group>"; };
 		74FEA7F1237C2FD1000770D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74FEA7FD237C38B7000770D7 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				74FEA7D6237C2FD1000770D7 /* Assets.xcassets */,
 				74FEA7D8237C2FD1000770D7 /* LaunchScreen.storyboard */,
 				74FEA7DB237C2FD1000770D7 /* Info.plist */,
+				74FEA7FD237C38B7000770D7 /* CustomButton.swift */,
 			);
 			path = Musique;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74FEA7FE237C38B7000770D7 /* CustomButton.swift in Sources */,
 				74FEA7D2237C2FCF000770D7 /* ViewController.swift in Sources */,
 				74FEA7CE237C2FCF000770D7 /* AppDelegate.swift in Sources */,
 				74FEA7D0237C2FCF000770D7 /* SceneDelegate.swift in Sources */,
