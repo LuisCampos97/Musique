@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="huH-SU-Gm8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PbY-hP-V0T">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -31,6 +31,9 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="Wrx-Hy-q3L"/>
                                 </constraints>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <segue destination="huH-SU-Gm8" kind="show" id="XmC-R5-6tu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PkH-An-AjA" customClass="CustomButton" customModule="Musique" customModuleProvider="target">
                                 <rect key="frame" x="122" y="497" width="170" height="30"/>
@@ -59,10 +62,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="95p-N6-0l2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-203" y="137"/>
+            <point key="canvasLocation" x="1042.0289855072465" y="138.61607142857142"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="hAD-7C-m7l">
@@ -105,8 +109,11 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="knQ-hH-EcJ"/>
                                 </constraints>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginTapped:" destination="huH-SU-Gm8" eventType="touchUpInside" id="1vU-pY-gGt"/>
+                                </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pJS-nL-JMj" customClass="CustomTextField" customModule="Musique" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pJS-nL-JMj">
                                 <rect key="frame" x="32" y="390" width="350" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="HoI-vE-hR1"/>
@@ -114,7 +121,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nWE-GR-Osv" customClass="CustomTextField" customModule="Musique" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nWE-GR-Osv">
                                 <rect key="frame" x="32" y="489" width="350" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="jqM-eN-cby"/>
@@ -146,12 +153,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="SqU-PI-kb7"/>
                     <connections>
+                        <outlet property="loginButton" destination="HRA-rm-1rj" id="HF0-d6-HiJ"/>
+                        <outlet property="passwordTextField" destination="nWE-GR-Osv" id="1p9-1W-PKE"/>
                         <outlet property="usernameTextField" destination="pJS-nL-JMj" id="LZk-e2-Z2N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OrT-pC-Zt3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-204" y="830"/>
+            <point key="canvasLocation" x="1731.8840579710147" y="136.60714285714286"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="KP9-WY-dG0">
@@ -577,7 +586,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GJ6-uB-ozw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1538" y="134"/>
+            <point key="canvasLocation" x="2468.1159420289855" y="132.58928571428572"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Np5-UW-igo">
@@ -785,7 +794,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t40-Im-AF7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2451" y="131"/>
+            <point key="canvasLocation" x="3139.130434782609" y="130.58035714285714"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="yPs-5w-3KR">
@@ -827,7 +836,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ohL-IN-dx0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3435" y="131"/>
+            <point key="canvasLocation" x="3860.8695652173915" y="129.91071428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BC2-1K-X3v">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="PbY-hP-V0T" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qtz-1q-SRG">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Sxu-gq-08O"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bqa-mG-1zx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
         </scene>
     </scenes>
     <resources>
