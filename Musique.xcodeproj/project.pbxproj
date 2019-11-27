@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		747534612386E15000943FF7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747534602386E15000943FF7 /* LoginViewController.swift */; };
+		747534642386E73800943FF7 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747534632386E73800943FF7 /* CustomTextField.swift */; };
 		74FEA7CE237C2FCF000770D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FEA7CD237C2FCF000770D7 /* AppDelegate.swift */; };
 		74FEA7D0237C2FCF000770D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FEA7CF237C2FCF000770D7 /* SceneDelegate.swift */; };
 		74FEA7D2237C2FCF000770D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FEA7D1237C2FCF000770D7 /* ViewController.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		747534602386E15000943FF7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		747534632386E73800943FF7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		74FEA7CA237C2FCF000770D7 /* Musique.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musique.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74FEA7CD237C2FCF000770D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74FEA7CF237C2FCF000770D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +82,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7475345F2386E05D00943FF7 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				74FEA7D1237C2FCF000770D7 /* ViewController.swift */,
+				747534602386E15000943FF7 /* LoginViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		747534622386E64500943FF7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				74FEA7FD237C38B7000770D7 /* CustomButton.swift */,
+				747534632386E73800943FF7 /* CustomTextField.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		74FEA7C1237C2FCF000770D7 = {
 			isa = PBXGroup;
 			children = (
@@ -101,14 +123,14 @@
 		74FEA7CC237C2FCF000770D7 /* Musique */ = {
 			isa = PBXGroup;
 			children = (
+				747534622386E64500943FF7 /* Helpers */,
+				7475345F2386E05D00943FF7 /* View Controllers */,
 				74FEA7CD237C2FCF000770D7 /* AppDelegate.swift */,
 				74FEA7CF237C2FCF000770D7 /* SceneDelegate.swift */,
-				74FEA7D1237C2FCF000770D7 /* ViewController.swift */,
 				74FEA7D3237C2FCF000770D7 /* Main.storyboard */,
 				74FEA7D6237C2FD1000770D7 /* Assets.xcassets */,
 				74FEA7D8237C2FD1000770D7 /* LaunchScreen.storyboard */,
 				74FEA7DB237C2FD1000770D7 /* Info.plist */,
-				74FEA7FD237C38B7000770D7 /* CustomButton.swift */,
 			);
 			path = Musique;
 			sourceTree = "<group>";
@@ -264,7 +286,9 @@
 			files = (
 				74FEA7FE237C38B7000770D7 /* CustomButton.swift in Sources */,
 				74FEA7D2237C2FCF000770D7 /* ViewController.swift in Sources */,
+				747534642386E73800943FF7 /* CustomTextField.swift in Sources */,
 				74FEA7CE237C2FCF000770D7 /* AppDelegate.swift in Sources */,
+				747534612386E15000943FF7 /* LoginViewController.swift in Sources */,
 				74FEA7D0237C2FCF000770D7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
