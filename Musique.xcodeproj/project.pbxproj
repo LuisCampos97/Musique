@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7441129C239016B100B388BD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7441129B239016B100B388BD /* HomeViewController.swift */; };
+		7441129E2390195A00B388BD /* AgreeTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7441129D2390195A00B388BD /* AgreeTermsViewController.swift */; };
 		7472E702238EBCC000C277E8 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7472E701238EBCC000C277E8 /* SignUpViewController.swift */; };
 		747534612386E15000943FF7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747534602386E15000943FF7 /* LoginViewController.swift */; };
 		747534642386E73800943FF7 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747534632386E73800943FF7 /* CustomTextField.swift */; };
@@ -47,6 +49,8 @@
 		3C64E004DDE8454F18D2E1B6 /* Pods_MusiqueTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusiqueTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E586F980C0258C81AF856C0 /* Pods-Musique-MusiqueUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musique-MusiqueUITests.debug.xcconfig"; path = "Target Support Files/Pods-Musique-MusiqueUITests/Pods-Musique-MusiqueUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		626D6DF392C81FE5786D60EB /* Pods_Musique_MusiqueUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Musique_MusiqueUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7441129B239016B100B388BD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		7441129D2390195A00B388BD /* AgreeTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreeTermsViewController.swift; sourceTree = "<group>"; };
 		7472E701238EBCC000C277E8 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		747534602386E15000943FF7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		747534632386E73800943FF7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 				74FEA7D1237C2FCF000770D7 /* ViewController.swift */,
 				747534602386E15000943FF7 /* LoginViewController.swift */,
 				7472E701238EBCC000C277E8 /* SignUpViewController.swift */,
+				7441129B239016B100B388BD /* HomeViewController.swift */,
+				7441129D2390195A00B388BD /* AgreeTermsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -440,8 +446,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				74FEA7FE237C38B7000770D7 /* CustomButton.swift in Sources */,
+				7441129E2390195A00B388BD /* AgreeTermsViewController.swift in Sources */,
 				7472E702238EBCC000C277E8 /* SignUpViewController.swift in Sources */,
 				74FEA7D2237C2FCF000770D7 /* ViewController.swift in Sources */,
+				7441129C239016B100B388BD /* HomeViewController.swift in Sources */,
 				747534642386E73800943FF7 /* CustomTextField.swift in Sources */,
 				74FEA7CE237C2FCF000770D7 /* AppDelegate.swift in Sources */,
 				747534612386E15000943FF7 /* LoginViewController.swift in Sources */,
