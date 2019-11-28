@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17C830422390276D00C568B6 /* EditUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C830412390276D00C568B6 /* EditUsernameViewController.swift */; };
+		17C83044239028D300C568B6 /* EditPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C83043239028D300C568B6 /* EditPasswordViewController.swift */; };
 		7441129C239016B100B388BD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7441129B239016B100B388BD /* HomeViewController.swift */; };
 		7441129E2390195A00B388BD /* AgreeTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7441129D2390195A00B388BD /* AgreeTermsViewController.swift */; };
 		7472E702238EBCC000C277E8 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7472E701238EBCC000C277E8 /* SignUpViewController.swift */; };
@@ -46,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		02A2C08D9570C5D50E8D0AC2 /* Pods-Musique-MusiqueUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musique-MusiqueUITests.release.xcconfig"; path = "Target Support Files/Pods-Musique-MusiqueUITests/Pods-Musique-MusiqueUITests.release.xcconfig"; sourceTree = "<group>"; };
+		17C830412390276D00C568B6 /* EditUsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUsernameViewController.swift; sourceTree = "<group>"; };
+		17C83043239028D300C568B6 /* EditPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPasswordViewController.swift; sourceTree = "<group>"; };
 		3C64E004DDE8454F18D2E1B6 /* Pods_MusiqueTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusiqueTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E586F980C0258C81AF856C0 /* Pods-Musique-MusiqueUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musique-MusiqueUITests.debug.xcconfig"; path = "Target Support Files/Pods-Musique-MusiqueUITests/Pods-Musique-MusiqueUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		626D6DF392C81FE5786D60EB /* Pods_Musique_MusiqueUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Musique_MusiqueUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +140,8 @@
 				7472E701238EBCC000C277E8 /* SignUpViewController.swift */,
 				7441129B239016B100B388BD /* HomeViewController.swift */,
 				7441129D2390195A00B388BD /* AgreeTermsViewController.swift */,
+				17C830412390276D00C568B6 /* EditUsernameViewController.swift */,
+				17C83043239028D300C568B6 /* EditPasswordViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -449,11 +455,13 @@
 				7441129E2390195A00B388BD /* AgreeTermsViewController.swift in Sources */,
 				7472E702238EBCC000C277E8 /* SignUpViewController.swift in Sources */,
 				74FEA7D2237C2FCF000770D7 /* ViewController.swift in Sources */,
+				17C830422390276D00C568B6 /* EditUsernameViewController.swift in Sources */,
 				7441129C239016B100B388BD /* HomeViewController.swift in Sources */,
 				747534642386E73800943FF7 /* CustomTextField.swift in Sources */,
 				74FEA7CE237C2FCF000770D7 /* AppDelegate.swift in Sources */,
 				747534612386E15000943FF7 /* LoginViewController.swift in Sources */,
 				74FEA7D0237C2FCF000770D7 /* SceneDelegate.swift in Sources */,
+				17C83044239028D300C568B6 /* EditPasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
