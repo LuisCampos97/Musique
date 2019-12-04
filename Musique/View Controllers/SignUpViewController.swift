@@ -1,6 +1,5 @@
 import UIKit
-import FirebaseAuth
-import Firebase
+
 
 class SignUpViewController: UIViewController {
     
@@ -10,9 +9,44 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordConfirmationTextField: UITextField!
     @IBOutlet weak var nextButton: CustomButton!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var birthDateTextField: UITextField!
+    @IBOutlet weak var genderPicker: UISegmentedControl!
+    
+    let datePicker = UIDatePicker()
+    
+    var name = ""
+    var email = ""
+    var password = ""
+    var age = ""
+    var gender = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        birthDateTextField.inputView = datePicker
+        datePicker.datePickerMode = .date
+        
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneAction))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        toolbar.setItems([flexSpace, doneButton], animated: true)
+        
+        birthDateTextField.inputAccessoryView = toolbar
+    }
+    
+    //Done button of Toolbar
+    @objc func doneAction() {
+        getDateFromPicker()
+        view.endEditing(true)
+    }
+    
+    func getDateFromPicker() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM d, yyyy"
+        birthDateTextField.text = formatter.string(from: datePicker.date)
     }
     
     func validateFields() -> String? {
@@ -21,12 +55,19 @@ class SignUpViewController: UIViewController {
         if (emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-            passwordConfirmationTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "")  {
+            passwordConfirmationTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            !genderPicker.isSelected)  {
             
             return "Please fill in all fields"
         }
+        else {
+            if passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) != passwordConfirmationTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) {
+                
+                return "Password and Password confirmation must be the same!"
+            }
+        }
         
-        //TODO: Check if the passowrd is secure
+        //TODO: Check if the password is secure
         
         return nil
     }
@@ -38,6 +79,12 @@ class SignUpViewController: UIViewController {
     
     //MARK: Next Button Click
     @IBAction func nextTapped(_ sender: Any) {
+        
+        // Create clean variables
+        name = nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        gender = genderPicker.titleForSegment(at: genderPicker.selectedSegmentIndex) ?? "Not defined"
         
         // Validate the fields
         let error = validateFields()
@@ -52,37 +99,12 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    
-    
-    func passarParaAgree() {
-        // Create clean variables
-        let name = nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        // Create the user
-        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
-            
-            // Check for errors
-            if error != nil {
-                self.showError("Error creating User!")
-            }
-            else {
-                
-                // User was created successfuly: store the first name and last name
-                let db = Firestore.firestore()
-                
-                db.collection("users").addDocument(
-                    data: ["name": name,
-                           "email": email,
-                           "uid": result!.user.uid]) { (error) in
-                            
-                            if error != nil {
-                                self.showError("Error saving user data")
-                            }
-                }
-            }
-        }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! AgreeTermsViewController
+        vc.name = self.name
+        vc.email = self.email
+        vc.password = self.password
+        vc.gender = self.gender
     }
     
 }
