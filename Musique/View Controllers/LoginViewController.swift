@@ -6,6 +6,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: CustomButton!
+    @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,12 +24,14 @@ class LoginViewController: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             
             if (error != nil) {
-                //Couldn't Sign in
                 
-                //TODO: Show Error in label
+                //Couldn't Sign in
+                self.errorLabel.text = error!.localizedDescription
+                self.errorLabel.alpha = 1
             }
             else {
                 //Transition to HomeView
+                self.performSegue(withIdentifier: "LoginToHomeSegue", sender: self)
             }
         }
     }

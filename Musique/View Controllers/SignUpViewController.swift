@@ -17,7 +17,7 @@ class SignUpViewController: UIViewController {
     var name = ""
     var email = ""
     var password = ""
-    var age = ""
+    var birthDate = ""
     var gender = ""
     
     override func viewDidLoad() {
@@ -56,7 +56,7 @@ class SignUpViewController: UIViewController {
             nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             passwordConfirmationTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-            !genderPicker.isSelected)  {
+            birthDateTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "")  {
             
             return "Please fill in all fields"
         }
@@ -85,6 +85,7 @@ class SignUpViewController: UIViewController {
         email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         gender = genderPicker.titleForSegment(at: genderPicker.selectedSegmentIndex) ?? "Not defined"
+        birthDate = birthDateTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         // Validate the fields
         let error = validateFields()
@@ -105,6 +106,7 @@ class SignUpViewController: UIViewController {
         vc.email = self.email
         vc.password = self.password
         vc.gender = self.gender
+        vc.birthDate = self.birthDate
     }
     
 }

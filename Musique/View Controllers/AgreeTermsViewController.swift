@@ -13,6 +13,7 @@ class AgreeTermsViewController: UIViewController {
     var email = ""
     var password = ""
     var gender = ""
+    var birthDate = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +41,16 @@ class AgreeTermsViewController: UIViewController {
                         data: ["name": self.name,
                                "email": self.email,
                                "gender": self.gender,
+                               "birthDate": self.birthDate,
                                "uid": result!.user.uid]) { (error) in
                                 
                                 if error != nil {
                                     self.showError("Error saving user data")
                                 }
                     }
+                    
+                    //Transition to the view of Select 3 favorities artists
+                    self.performSegue(withIdentifier: "AgreeTermsToFavouriteArtistsSegue", sender: self)
                 }
             }
         }
@@ -57,6 +62,11 @@ class AgreeTermsViewController: UIViewController {
     func showError(_ message:String) {
         errorLabel.text = message
         errorLabel.alpha = 1
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! SelectFavouriteArtistsViewController
+        vc.name = self.name
     }
     
 }

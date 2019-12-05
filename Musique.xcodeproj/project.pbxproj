@@ -11,6 +11,8 @@
 		17C83044239028D300C568B6 /* EditPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C83043239028D300C568B6 /* EditPasswordViewController.swift */; };
 		7441129C239016B100B388BD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7441129B239016B100B388BD /* HomeViewController.swift */; };
 		7441129E2390195A00B388BD /* AgreeTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7441129D2390195A00B388BD /* AgreeTermsViewController.swift */; };
+		7445EBD5239958490033F548 /* SelectFavouriteArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7445EBD4239958490033F548 /* SelectFavouriteArtistsViewController.swift */; };
+		7445EBD723995D9D0033F548 /* RegisterCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7445EBD623995D9D0033F548 /* RegisterCompleteViewController.swift */; };
 		7472E702238EBCC000C277E8 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7472E701238EBCC000C277E8 /* SignUpViewController.swift */; };
 		747534612386E15000943FF7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747534602386E15000943FF7 /* LoginViewController.swift */; };
 		747534642386E73800943FF7 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747534632386E73800943FF7 /* CustomTextField.swift */; };
@@ -55,6 +57,8 @@
 		626D6DF392C81FE5786D60EB /* Pods_Musique_MusiqueUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Musique_MusiqueUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7441129B239016B100B388BD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7441129D2390195A00B388BD /* AgreeTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreeTermsViewController.swift; sourceTree = "<group>"; };
+		7445EBD4239958490033F548 /* SelectFavouriteArtistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFavouriteArtistsViewController.swift; sourceTree = "<group>"; };
+		7445EBD623995D9D0033F548 /* RegisterCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCompleteViewController.swift; sourceTree = "<group>"; };
 		7472E701238EBCC000C277E8 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		747534602386E15000943FF7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		747534632386E73800943FF7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 				7441129D2390195A00B388BD /* AgreeTermsViewController.swift */,
 				17C830412390276D00C568B6 /* EditUsernameViewController.swift */,
 				17C83043239028D300C568B6 /* EditPasswordViewController.swift */,
+				7445EBD4239958490033F548 /* SelectFavouriteArtistsViewController.swift */,
+				7445EBD623995D9D0033F548 /* RegisterCompleteViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -455,6 +461,7 @@
 				7441129E2390195A00B388BD /* AgreeTermsViewController.swift in Sources */,
 				7472E702238EBCC000C277E8 /* SignUpViewController.swift in Sources */,
 				74FEA7D2237C2FCF000770D7 /* ViewController.swift in Sources */,
+				7445EBD723995D9D0033F548 /* RegisterCompleteViewController.swift in Sources */,
 				17C830422390276D00C568B6 /* EditUsernameViewController.swift in Sources */,
 				7441129C239016B100B388BD /* HomeViewController.swift in Sources */,
 				747534642386E73800943FF7 /* CustomTextField.swift in Sources */,
@@ -462,6 +469,7 @@
 				747534612386E15000943FF7 /* LoginViewController.swift in Sources */,
 				74FEA7D0237C2FCF000770D7 /* SceneDelegate.swift in Sources */,
 				17C83044239028D300C568B6 /* EditPasswordViewController.swift in Sources */,
+				7445EBD5239958490033F548 /* SelectFavouriteArtistsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,8 +644,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5U2V7C7S45;
 				INFOPLIST_FILE = Musique/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -655,8 +664,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5U2V7C7S45;
 				INFOPLIST_FILE = Musique/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
