@@ -28,6 +28,8 @@
 		74FEA7FE237C38B7000770D7 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FEA7FD237C38B7000770D7 /* CustomButton.swift */; };
 		8308B9F5CABB2FC8D1045F45 /* Pods_Musique.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 765A16B67A878B537BAC9DE8 /* Pods_Musique.framework */; };
 		CCA7B8378BADB94CD387F8D2 /* Pods_Musique_MusiqueUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 626D6DF392C81FE5786D60EB /* Pods_Musique_MusiqueUITests.framework */; };
+		D052D5E323AA5CB9000AA7E5 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D052D5E123AA5CB9000AA7E5 /* logo.png */; };
+		D052D5E423AA5CB9000AA7E5 /* logo_transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = D052D5E223AA5CB9000AA7E5 /* logo_transparent.png */; };
 		DDF9E24869AEF7F7A46F1B13 /* Pods_MusiqueTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C64E004DDE8454F18D2E1B6 /* Pods_MusiqueTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +85,8 @@
 		B23F0D325E392BE23DA5948F /* Pods-MusiqueTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusiqueTests.release.xcconfig"; path = "Target Support Files/Pods-MusiqueTests/Pods-MusiqueTests.release.xcconfig"; sourceTree = "<group>"; };
 		B88046CFC4CAD26FB223AD6B /* Pods-Musique.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musique.debug.xcconfig"; path = "Target Support Files/Pods-Musique/Pods-Musique.debug.xcconfig"; sourceTree = "<group>"; };
 		C950DBEF7C2AAD4D72050C49 /* Pods-MusiqueTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusiqueTests.debug.xcconfig"; path = "Target Support Files/Pods-MusiqueTests/Pods-MusiqueTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D052D5E123AA5CB9000AA7E5 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = "../../HatchfulExport-All 2/logo.png"; sourceTree = "<group>"; };
+		D052D5E223AA5CB9000AA7E5 /* logo_transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_transparent.png; path = "../../HatchfulExport-All 2/logo_transparent.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +198,8 @@
 				74FEA7D6237C2FD1000770D7 /* Assets.xcassets */,
 				74FEA7D8237C2FD1000770D7 /* LaunchScreen.storyboard */,
 				74FEA7DB237C2FD1000770D7 /* Info.plist */,
+				D052D5E223AA5CB9000AA7E5 /* logo_transparent.png */,
+				D052D5E123AA5CB9000AA7E5 /* logo.png */,
 				74F832E8238EB5C7008A1F58 /* GoogleService-Info.plist */,
 			);
 			path = Musique;
@@ -327,6 +333,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				74FEA7DA237C2FD1000770D7 /* LaunchScreen.storyboard in Resources */,
+				D052D5E423AA5CB9000AA7E5 /* logo_transparent.png in Resources */,
+				D052D5E323AA5CB9000AA7E5 /* logo.png in Resources */,
 				74F832E9238EB5C7008A1F58 /* GoogleService-Info.plist in Resources */,
 				74FEA7D7237C2FD1000770D7 /* Assets.xcassets in Resources */,
 				74FEA7D5237C2FCF000770D7 /* Main.storyboard in Resources */,
