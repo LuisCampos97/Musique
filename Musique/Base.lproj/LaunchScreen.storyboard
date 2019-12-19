@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,30 +15,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Musique" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ype-4h-C4t">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Musique" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ype-4h-C4t">
                                 <rect key="frame" x="176" y="392" width="0.0" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="music.note" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="iVe-ic-M07">
-                                <rect key="frame" x="57" y="317.5" width="300" height="149"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_transparent.png" translatesAutoresizingMaskIntoConstraints="NO" id="iVe-ic-M07">
+                                <rect key="frame" x="0.5" y="350.5" width="413" height="205"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="CoK-Aj-ikI"/>
-                                    <constraint firstAttribute="height" constant="150" id="UXj-H9-TXi"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="ooE-kj-FlH"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="wzR-34-xgS"/>
+                                    <constraint firstAttribute="height" constant="205" id="bYM-6q-3Vt"/>
+                                    <constraint firstAttribute="width" constant="413" id="sme-2M-bI4"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
-                            <constraint firstItem="iVe-ic-M07" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="286" id="65D-ve-w2y"/>
-                            <constraint firstItem="iVe-ic-M07" firstAttribute="trailing" secondItem="ype-4h-C4t" secondAttribute="trailing" constant="181" id="J8P-eL-yZx"/>
-                            <constraint firstItem="iVe-ic-M07" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="57" id="ePN-cb-0qW"/>
-                            <constraint firstItem="iVe-ic-M07" firstAttribute="centerY" secondItem="ype-4h-C4t" secondAttribute="centerY" constant="-31" id="hIx-B1-MKO"/>
-                            <constraint firstItem="iVe-ic-M07" firstAttribute="leading" secondItem="ype-4h-C4t" secondAttribute="leading" constant="-119" id="omv-KX-XBZ"/>
+                            <constraint firstItem="iVe-ic-M07" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="EV4-pb-HvZ"/>
+                            <constraint firstItem="iVe-ic-M07" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="bqv-6h-2Yk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -49,6 +45,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="music.note" catalog="system" width="48" height="64"/>
+        <image name="logo_transparent.png" width="1200" height="1200"/>
     </resources>
 </document>
