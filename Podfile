@@ -20,5 +20,6 @@ pod 'Firebase/Analytics'
 pod 'Firebase/Auth'
 pod 'Firebase/Core' 
 pod 'Firebase/Firestore'
+pod 'Alamofire', '~> 5.0.0-rc.3'
 
 end

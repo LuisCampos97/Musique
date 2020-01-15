@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		17C830422390276D00C568B6 /* EditUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C830412390276D00C568B6 /* EditUsernameViewController.swift */; };
 		17C83044239028D300C568B6 /* EditPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C83043239028D300C568B6 /* EditPasswordViewController.swift */; };
+		743152B023CFB0D8000F485F /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743152AF23CFB0D8000F485F /* TrackTableViewCell.swift */; };
 		7441129C239016B100B388BD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7441129B239016B100B388BD /* HomeViewController.swift */; };
 		7441129E2390195A00B388BD /* AgreeTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7441129D2390195A00B388BD /* AgreeTermsViewController.swift */; };
 		7445EBD5239958490033F548 /* SelectFavouriteArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7445EBD4239958490033F548 /* SelectFavouriteArtistsViewController.swift */; };
@@ -20,9 +21,12 @@
 		747534642386E73800943FF7 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747534632386E73800943FF7 /* CustomTextField.swift */; };
 		74F832E9238EB5C7008A1F58 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74F832E8238EB5C7008A1F58 /* GoogleService-Info.plist */; };
 		74FE4D0623CE44F8005226C6 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FE4D0523CE44F8005226C6 /* MainTabViewController.swift */; };
-		74FE4D0A23CE66CA005226C6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FE4D0923CE66CA005226C6 /* SearchViewController.swift */; };
+		74FE4D0A23CE66CA005226C6 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FE4D0923CE66CA005226C6 /* SearchTableViewController.swift */; };
 		74FE4D0C23CE6720005226C6 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FE4D0B23CE6720005226C6 /* FavoritesViewController.swift */; };
 		74FE4D0E23CE676D005226C6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FE4D0D23CE676D005226C6 /* ProfileViewController.swift */; };
+		74FE4D1123CE6D20005226C6 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FE4D1023CE6D20005226C6 /* Track.swift */; };
+		74FE4D1323CE6EFA005226C6 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FE4D1223CE6EFA005226C6 /* Artist.swift */; };
+		74FE4D1523CE6F04005226C6 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FE4D1423CE6F04005226C6 /* Album.swift */; };
 		74FEA7CE237C2FCF000770D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FEA7CD237C2FCF000770D7 /* AppDelegate.swift */; };
 		74FEA7D0237C2FCF000770D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FEA7CF237C2FCF000770D7 /* SceneDelegate.swift */; };
 		74FEA7D2237C2FCF000770D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FEA7D1237C2FCF000770D7 /* ViewController.swift */; };
@@ -61,6 +65,7 @@
 		3C64E004DDE8454F18D2E1B6 /* Pods_MusiqueTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusiqueTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E586F980C0258C81AF856C0 /* Pods-Musique-MusiqueUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musique-MusiqueUITests.debug.xcconfig"; path = "Target Support Files/Pods-Musique-MusiqueUITests/Pods-Musique-MusiqueUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		626D6DF392C81FE5786D60EB /* Pods_Musique_MusiqueUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Musique_MusiqueUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		743152AF23CFB0D8000F485F /* TrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
 		7441129B239016B100B388BD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7441129D2390195A00B388BD /* AgreeTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreeTermsViewController.swift; sourceTree = "<group>"; };
 		7445EBD4239958490033F548 /* SelectFavouriteArtistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFavouriteArtistsViewController.swift; sourceTree = "<group>"; };
@@ -72,9 +77,12 @@
 		747534632386E73800943FF7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		74F832E8238EB5C7008A1F58 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74FE4D0523CE44F8005226C6 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
-		74FE4D0923CE66CA005226C6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		74FE4D0923CE66CA005226C6 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		74FE4D0B23CE6720005226C6 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		74FE4D0D23CE676D005226C6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		74FE4D1023CE6D20005226C6 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		74FE4D1223CE6EFA005226C6 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		74FE4D1423CE6F04005226C6 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		74FEA7CA237C2FCF000770D7 /* Musique.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musique.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74FEA7CD237C2FCF000770D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74FEA7CF237C2FCF000770D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -186,11 +194,22 @@
 			isa = PBXGroup;
 			children = (
 				7441129B239016B100B388BD /* HomeViewController.swift */,
-				74FE4D0923CE66CA005226C6 /* SearchViewController.swift */,
+				74FE4D0923CE66CA005226C6 /* SearchTableViewController.swift */,
 				74FE4D0B23CE6720005226C6 /* FavoritesViewController.swift */,
 				74FE4D0D23CE676D005226C6 /* ProfileViewController.swift */,
+				743152AF23CFB0D8000F485F /* TrackTableViewCell.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		74FE4D0F23CE6D04005226C6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				74FE4D1023CE6D20005226C6 /* Track.swift */,
+				74FE4D1223CE6EFA005226C6 /* Artist.swift */,
+				74FE4D1423CE6F04005226C6 /* Album.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		74FEA7C1237C2FCF000770D7 = {
@@ -218,6 +237,7 @@
 		74FEA7CC237C2FCF000770D7 /* Musique */ = {
 			isa = PBXGroup;
 			children = (
+				74FE4D0F23CE6D04005226C6 /* Models */,
 				747534622386E64500943FF7 /* Helpers */,
 				7475345F2386E05D00943FF7 /* View Controllers */,
 				74FEA7CD237C2FCF000770D7 /* AppDelegate.swift */,
@@ -493,11 +513,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74FE4D0A23CE66CA005226C6 /* SearchViewController.swift in Sources */,
+				74FE4D0A23CE66CA005226C6 /* SearchTableViewController.swift in Sources */,
 				74FEA7FE237C38B7000770D7 /* CustomButton.swift in Sources */,
 				7441129E2390195A00B388BD /* AgreeTermsViewController.swift in Sources */,
 				7472E702238EBCC000C277E8 /* SignUpViewController.swift in Sources */,
 				74FEA7D2237C2FCF000770D7 /* ViewController.swift in Sources */,
+				74FE4D1123CE6D20005226C6 /* Track.swift in Sources */,
 				7445EBD723995D9D0033F548 /* RegisterCompleteViewController.swift in Sources */,
 				74FE4D0623CE44F8005226C6 /* MainTabViewController.swift in Sources */,
 				74FE4D0E23CE676D005226C6 /* ProfileViewController.swift in Sources */,
@@ -505,11 +526,14 @@
 				7441129C239016B100B388BD /* HomeViewController.swift in Sources */,
 				747534642386E73800943FF7 /* CustomTextField.swift in Sources */,
 				74FE4D0C23CE6720005226C6 /* FavoritesViewController.swift in Sources */,
+				743152B023CFB0D8000F485F /* TrackTableViewCell.swift in Sources */,
+				74FE4D1323CE6EFA005226C6 /* Artist.swift in Sources */,
 				74FEA7CE237C2FCF000770D7 /* AppDelegate.swift in Sources */,
 				747534612386E15000943FF7 /* LoginViewController.swift in Sources */,
 				74FEA7D0237C2FCF000770D7 /* SceneDelegate.swift in Sources */,
 				17C83044239028D300C568B6 /* EditPasswordViewController.swift in Sources */,
 				7445EBD5239958490033F548 /* SelectFavouriteArtistsViewController.swift in Sources */,
+				74FE4D1523CE6F04005226C6 /* Album.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

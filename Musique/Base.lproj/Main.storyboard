@@ -162,6 +162,82 @@
             </objects>
             <point key="canvasLocation" x="1340" y="-156.07196401799101"/>
         </scene>
+        <!--Search-->
+        <scene sceneID="e58-oQ-Wxq">
+            <objects>
+                <tableViewController id="pSO-X0-gnp" customClass="SearchTableViewController" customModule="Musique" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3kb-u9-u9T">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="dz1-mq-FGT">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="pSO-X0-gnp" id="YYh-Tm-bky"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrackCell" rowHeight="120" id="Cna-VA-0Km" customClass="TrackTableViewCell" customModule="Musique" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="414" height="120"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cna-VA-0Km" id="6R0-lO-dtZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZvK-Nc-RIm">
+                                            <rect key="frame" x="96" y="45.666666666666664" width="4.3333333333333286" height="19.333333333333336"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5l-25-FyL">
+                                            <rect key="frame" x="96" y="16" width="46" height="21.666666666666671"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nNE-Yn-0Lc">
+                                            <rect key="frame" x="20" y="28" width="68.666666666666671" height="65.666666666666671"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="65.670000000000002" id="Ppf-Nu-tf3"/>
+                                                <constraint firstAttribute="width" constant="68.670000000000002" id="amN-6x-y1Z"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ZvK-Nc-RIm" firstAttribute="leading" secondItem="nNE-Yn-0Lc" secondAttribute="trailing" constant="7.3333333333333286" id="7rb-1W-Eu7"/>
+                                        <constraint firstItem="nNE-Yn-0Lc" firstAttribute="leading" secondItem="6R0-lO-dtZ" secondAttribute="leading" constant="20" id="ayP-5T-rPG"/>
+                                        <constraint firstItem="d5l-25-FyL" firstAttribute="leading" secondItem="nNE-Yn-0Lc" secondAttribute="trailing" constant="7.3333333333333286" id="loc-KU-MIS"/>
+                                        <constraint firstItem="ZvK-Nc-RIm" firstAttribute="top" secondItem="d5l-25-FyL" secondAttribute="bottom" constant="8" id="mrG-UA-Cty"/>
+                                        <constraint firstItem="d5l-25-FyL" firstAttribute="top" secondItem="6R0-lO-dtZ" secondAttribute="top" constant="16" id="obE-LE-tA6"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZvK-Nc-RIm" secondAttribute="trailing" constant="20" symbolic="YES" id="qbd-lg-Hp1"/>
+                                        <constraint firstAttribute="trailing" secondItem="d5l-25-FyL" secondAttribute="trailing" constant="272" id="s8A-Vg-5pl"/>
+                                        <constraint firstItem="nNE-Yn-0Lc" firstAttribute="top" secondItem="6R0-lO-dtZ" secondAttribute="top" constant="11" id="zH1-zF-NlK"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="albumImage" destination="nNE-Yn-0Lc" id="K7U-7J-e85"/>
+                                    <outlet property="artistNameLabel" destination="ZvK-Nc-RIm" id="q6c-up-zML"/>
+                                    <outlet property="nameLabel" destination="d5l-25-FyL" id="Lod-Wz-O44"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="pSO-X0-gnp" id="3Pv-Un-dt2"/>
+                            <outlet property="delegate" destination="pSO-X0-gnp" id="0xt-cC-2Py"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="hcn-Sn-bmw"/>
+                    <connections>
+                        <outlet property="searchBar" destination="dz1-mq-FGT" id="oVa-4w-8gt"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4zz-8M-O6D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3326" y="575"/>
+        </scene>
         <!--Favorites-->
         <scene sceneID="XIQ-jL-XB2">
             <objects>
@@ -643,31 +719,6 @@
             </objects>
             <point key="canvasLocation" x="2251" y="1249"/>
         </scene>
-        <!--Search-->
-        <scene sceneID="2Si-0q-pgj">
-            <objects>
-                <viewController id="XGR-Yg-In9" customClass="SearchViewController" customModule="Musique" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vA3-wN-3h8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" text="" translatesAutoresizingMaskIntoConstraints="NO" id="xPS-Zr-uU9">
-                                <rect key="frame" x="20" y="121" width="374" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.72565680742263794" green="0.15715175867080688" blue="0.15617448091506958" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="0.72664862871170044" green="0.15712764859199524" blue="0.15610340237617493" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="barTintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="T6K-1y-fvM"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="iz1-Vm-aEK"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oyE-KF-SX9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3273.913043478261" y="576.5625"/>
-        </scene>
         <!--Home-->
         <scene sceneID="Mhd-BE-GLb">
             <objects>
@@ -838,7 +889,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="QZg-kD-eR3" kind="relationship" relationship="viewControllers" id="dL5-GQ-7eC"/>
-                        <segue destination="XGR-Yg-In9" kind="relationship" relationship="viewControllers" id="WMI-BI-Eg3"/>
+                        <segue destination="pSO-X0-gnp" kind="relationship" relationship="viewControllers" id="gj0-l0-xTr"/>
                         <segue destination="ZRX-28-Ujp" kind="relationship" relationship="viewControllers" id="gMM-9s-VQQ"/>
                         <segue destination="sPr-nQ-q0a" kind="relationship" relationship="viewControllers" id="liQ-xG-e4N"/>
                     </connections>
@@ -1077,13 +1128,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tF-QX-Wht">
-                                <rect key="frame" x="32" y="402" width="98" height="20.666666666666686"/>
+                                <rect key="frame" x="32" y="402" width="98" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8O0-Q3-7Ha">
-                                <rect key="frame" x="57" y="180" width="300" height="140.33333333333331"/>
+                                <rect key="frame" x="57" y="180" width="300" height="140"/>
                                 <color key="tintColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="adE-aJ-SYH">
@@ -1098,7 +1149,7 @@
                                 </items>
                             </tabBar>
                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="weI-lO-i7w" customClass="CustomTextField" customModule="Musique" customModuleProvider="target">
-                                <rect key="frame" x="32" y="430.66666666666669" width="325" height="34"/>
+                                <rect key="frame" x="32" y="430.33333333333331" width="325" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -1113,29 +1164,29 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Save"/>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wT6-aN-YkB">
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wT6-aN-YkB">
                                 <rect key="frame" x="32" y="517" width="325" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXV-3E-3A4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="New Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXV-3E-3A4">
                                 <rect key="frame" x="32" y="579" width="113" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="18A-sz-Lc5">
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="18A-sz-Lc5">
                                 <rect key="frame" x="33" y="608" width="324" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rp6-SP-t0n">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Confirm Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rp6-SP-t0n">
                                 <rect key="frame" x="33" y="670" width="140" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZQg-Sv-TiG">
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZQg-Sv-TiG">
                                 <rect key="frame" x="33" y="699" width="324" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
