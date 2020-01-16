@@ -7,6 +7,8 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
     var artistName : String!
+    var albumName : String!
+    var albumID : Int!
     
     var searchURL = String()
     
@@ -20,12 +22,13 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
-        //tracks.removeAll()
+        tracks.removeAll()
+        tableView.reloadData()
         
         let keywords = searchBar.text
         let finalKeywords = keywords?.replacingOccurrences(of: " ", with: "+")
         
-        searchURL = "https://api.deezer.com/search?q=\(finalKeywords!)&limit=7"
+        searchURL = "https://api.deezer.com/search?q=\(finalKeywords!)&limit=10"
         
         print(searchURL)
         
@@ -44,24 +47,35 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
     func parseData(JSONData : Data) {
         do {
-            var readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! JSONStandard
+            let readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! JSONStandard
             if let tracksData = readableJSON["data"] as? [JSONStandard]{
                     for i in 0..<tracksData.count{
                         let item = tracksData[i]
-                        print(item)
-                        let name = item["title"] as! String
+                        let title = item["title"] as! String
+                        let duration = item["duration"] as! Int
+                        let idFromAPI = item["id"] as! Int
                         
                         if let artist = item["artist"] as? JSONStandard {
-                            artistName = artist["name"] as! String
+                            artistName = artist["name"] as? String
                         }
                         
+                        let artistObject = Artist(idFromAPI: idFromAPI, name: artistName)
+                        
                         if let album = item["album"] as? JSONStandard{
-                            let mainImageURL =  URL(string: album["cover"] as! String)
+                            let mainImageURL =  URL(string: album["cover_big"] as! String) 
                             let mainImageData = NSData(contentsOf: mainImageURL!)
-                                
-                            let mainImage = UIImage(data: mainImageData! as Data)
-                                
-                            addTrack((Track.init(name: name, artistName: artistName, image: mainImage))!)
+                            let cover = UIImage(data: mainImageData! as Data)!
+                            
+                            albumName = album["title"] as? String
+                            albumID = album["id"] as? Int
+                            
+                            let album = Album.init(idFromAPI: albumID, name: albumName, cover: cover, artist: artistObject)
+                            
+                            let track = Track.init(idFromAPI: idFromAPI, title: title, duration: duration)
+                            track?.album = album
+                            track?.artist = artistObject
+                            
+                            addTrack(track!)
                             self.tableView.reloadData()
                         }
                 }
@@ -102,10 +116,18 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         
         let track = tracks[indexPath.row]
         
-        cell.nameLabel.text = track.name
-        cell.artistNameLabel.text = track.artistName
-        cell.albumImage.image = track.image
+        cell.nameLabel.text = track.title
+        cell.artistNameLabel.text = track.artist?.name
+        cell.albumImage.image = track.album?.cover
         
         return cell
     }
+    
+    //MARK: Send data to Track Details View
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let indexPath = self.tableView.indexPathForSelectedRow?.row
+        let vc = segue.destination as! TrackDetailsViewController
+        vc.track = tracks[indexPath!]
+    }
+    
 }

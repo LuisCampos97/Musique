@@ -1,65 +1,106 @@
 import UIKit
 import os.log
 
-class Track: NSObject, NSCoding, Codable {
+class Track: NSObject {
     
     //MARK: Properties
-    var name: String
-    var artistName: String
-    var image: UIImage?
+    private var _idFromAPI: Int
+    private var _title: String
+    private var _duration: Int
+    private var _album: Album?
+    private var _artist: Artist?
     
-    var imageURL: URL?
+    var idFromAPI: Int {
+        get {
+            return _idFromAPI
+        }
+    }
+    
+    var title: String {
+        get {
+            return _title
+        }
+    }
+    
+    var duration: Int {
+        get {
+            return _duration
+        }
+    }
+    
+    var album: Album? {
+        get {
+            return _album
+        }
+        
+        set (newAlbum){
+            _album = newAlbum
+        }
+    }
+    
+    var artist: Artist? {
+        get {
+            return _artist
+        }
+        
+        set (newArtist){
+            _artist = newArtist
+        }
+    }
+    
     
     //MARK: Initialization
-    init?(name: String, artistName: String, image: UIImage?, imageURL: URL? = nil) {
+    init?(idFromAPI: Int, title: String, duration: Int) {
         
-        if name.isEmpty || artistName.isEmpty {
+        if title.isEmpty {
             return nil
         }
         
         // Initialize stored properties
-        self.name = name
-        self.artistName = artistName
-        self.image = image
-        self.imageURL = imageURL
+        self._idFromAPI = idFromAPI
+        self._title = title
+        self._duration = duration
     }
     
-    struct PropertyKey {
-        static let name = "name"
-        static let artistName = "artistName"
-        static let image = "image"
-        static let imageURL = "imageURL"
-    }
-    
-    func encode(with coder: NSCoder) {
-        coder.encode(name, forKey: PropertyKey.name)
-        coder.encode(artistName, forKey: PropertyKey.artistName)
-        coder.encode(imageURL, forKey: PropertyKey.imageURL)
-    }
-    
-    required convenience init?(coder: NSCoder) {
-        
-        guard let name = coder.decodeObject(forKey: PropertyKey.name) as? String else {
-            os_log("Unable to decode the name of the track", log: OSLog.default, type: .debug)
-            return nil
-        }
-        
-        guard let artistName = coder.decodeObject(forKey: PropertyKey.artistName) as? String else {
-            os_log("Unable to decode the name of the track", log: OSLog.default, type: .debug)
-            return nil
-        }
-        
-        let image = coder.decodeObject(forKey: PropertyKey.image) as? UIImage
-        
-        let imageURL = coder.decodeObject(forKey: PropertyKey.imageURL) as? URL
-        
-        self.init(name: name, artistName: artistName, image: image, imageURL: imageURL)
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case name
-        case artistName
-        case imageURL = "image"
-    }
+//    struct PropertyKey {
+//        static let idFromAPI = "idFromAPI"
+//        static let title = "title"
+//        static let duration = "duration"
+//        //static let album = "album"
+//        //static let artist = "artist"
+//    }
+//
+//    func encode(with coder: NSCoder) {
+//        coder.encode(idFromAPI, forKey: PropertyKey.idFromAPI)
+//        coder.encode(title, forKey: PropertyKey.title)
+//        coder.encode(duration, forKey: PropertyKey.duration)
+//        //coder.encode(albumName, forKey: PropertyKey.albumName)
+//    }
+//
+//    required convenience init?(coder: NSCoder) {
+//
+//        guard let idFromAPI = coder.decodeObject(forKey: PropertyKey.idFromAPI) as? Int else {
+//            os_log("Unable to decode the id of the track", log: OSLog.default, type: .debug)
+//            return nil
+//        }
+//
+//        guard let title = coder.decodeObject(forKey: PropertyKey.title) as? String else {
+//            os_log("Unable to decode the name of the track", log: OSLog.default, type: .debug)
+//            return nil
+//        }
+//
+//        guard let duration = coder.decodeObject(forKey: PropertyKey.duration) as? Int else {
+//            os_log("Unable to decode the duration of the track", log: OSLog.default, type: .debug)
+//            return nil
+//        }
+//
+//        self.init(idFromAPI: idFromAPI, title: title, duration: duration)
+//    }
+//
+//    enum CodingKeys: String, CodingKey {
+//        case idFromAPI
+//        case title
+//        case duration
+//    }
     
 }
