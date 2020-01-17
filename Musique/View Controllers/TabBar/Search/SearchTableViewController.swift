@@ -12,6 +12,8 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
     var searchURL = String()
     
+    var mainImageArtist : UIImage?
+    
     var tracks = [Track]()
     
     typealias JSONStandard = [String : AnyObject]
@@ -57,9 +59,12 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                         
                         if let artist = item["artist"] as? JSONStandard {
                             artistName = artist["name"] as? String
+                            let mainImageURLArtist =  URL(string: artist["picture"] as! String)
+                            let mainImageDataArtist = NSData(contentsOf: mainImageURLArtist!)
+                            mainImageArtist = UIImage(data: mainImageDataArtist! as Data)!
                         }
                         
-                        let artistObject = Artist(idFromAPI: idFromAPI, name: artistName)
+                        let artistObject = Artist(idFromAPI: idFromAPI, name: artistName, image: mainImageArtist!)
                         
                         if let album = item["album"] as? JSONStandard{
                             let mainImageURL =  URL(string: album["cover_big"] as! String) 
@@ -85,8 +90,6 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         catch{
             print(error)
         }
-        
-        
     }
     
     fileprivate func addTrack(_ track: Track) {
@@ -107,7 +110,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+
         let cellIdentifier = "TrackCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? TrackTableViewCell else {

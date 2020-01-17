@@ -66,7 +66,7 @@ class AgreeTermsViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! SelectFavouriteArtistsViewController
-        vc.name = self.name
+        //vc.name = self.name
     }
     
 }
