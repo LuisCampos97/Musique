@@ -1,8 +1,8 @@
 import UIKit
-import os.log
 
 class Album: NSObject {
     
+    //MARK: Properties
     var idFromAPI: Int
     var name: String
     var cover: UIImage?

@@ -21,6 +21,8 @@
 		747534612386E15000943FF7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747534602386E15000943FF7 /* LoginViewController.swift */; };
 		747534642386E73800943FF7 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747534632386E73800943FF7 /* CustomTextField.swift */; };
 		74E4988E23D1226900C3EB42 /* AlbumDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E4988D23D1226900C3EB42 /* AlbumDetailsViewController.swift */; };
+		74E4989023D13C2C00C3EB42 /* AlbumDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E4988F23D13C2C00C3EB42 /* AlbumDetailsTableViewCell.swift */; };
+		74E4989223D1F0DD00C3EB42 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E4989123D1F0DD00C3EB42 /* Utils.swift */; };
 		74F832E9238EB5C7008A1F58 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74F832E8238EB5C7008A1F58 /* GoogleService-Info.plist */; };
 		74FE4D0623CE44F8005226C6 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FE4D0523CE44F8005226C6 /* MainTabViewController.swift */; };
 		74FE4D0A23CE66CA005226C6 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FE4D0923CE66CA005226C6 /* SearchTableViewController.swift */; };
@@ -79,6 +81,8 @@
 		747534602386E15000943FF7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		747534632386E73800943FF7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		74E4988D23D1226900C3EB42 /* AlbumDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsViewController.swift; sourceTree = "<group>"; };
+		74E4988F23D13C2C00C3EB42 /* AlbumDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		74E4989123D1F0DD00C3EB42 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		74F832E8238EB5C7008A1F58 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74FE4D0523CE44F8005226C6 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		74FE4D0923CE66CA005226C6 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 				743152AF23CFB0D8000F485F /* TrackTableViewCell.swift */,
 				745CDDF923D0CD5D004AA168 /* TrackDetailsViewController.swift */,
 				74E4988D23D1226900C3EB42 /* AlbumDetailsViewController.swift */,
+				74E4988F23D13C2C00C3EB42 /* AlbumDetailsTableViewCell.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 			children = (
 				74FEA7FD237C38B7000770D7 /* CustomButton.swift */,
 				747534632386E73800943FF7 /* CustomTextField.swift */,
+				74E4989123D1F0DD00C3EB42 /* Utils.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -531,6 +537,8 @@
 				74FEA7FE237C38B7000770D7 /* CustomButton.swift in Sources */,
 				7441129E2390195A00B388BD /* AgreeTermsViewController.swift in Sources */,
 				74E4988E23D1226900C3EB42 /* AlbumDetailsViewController.swift in Sources */,
+				74E4989023D13C2C00C3EB42 /* AlbumDetailsTableViewCell.swift in Sources */,
+				74E4989223D1F0DD00C3EB42 /* Utils.swift in Sources */,
 				7472E702238EBCC000C277E8 /* SignUpViewController.swift in Sources */,
 				74FEA7D2237C2FCF000770D7 /* ViewController.swift in Sources */,
 				74FE4D1123CE6D20005226C6 /* Track.swift in Sources */,

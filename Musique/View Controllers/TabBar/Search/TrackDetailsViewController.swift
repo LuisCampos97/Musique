@@ -16,26 +16,18 @@ class TrackDetailsViewController: UIViewController {
         imageView.image = track.album?.cover
         trackName.text = track.title
         artistName.text = track.artist?.name
-        duration.text = timeString(numberToConvert: track.duration)
+        duration.text = Utils.timeString(numberToConvert: track.duration)
         albumName.text = track.album?.name
     }
-    
-    func timeString(numberToConvert: Int) -> String {
-        let minute = Int(numberToConvert) / 60 % 60
-        let second = Int(numberToConvert) % 60
 
-        return String(format: "%02i:%02i", minute, second)
-    }
-    
-    @IBAction func viewAlbumAction(_ sender: Any) {
-        
-        performSegue(withIdentifier: "TrackDetailsToAlbumDetails", sender: self)
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! AlbumDetailsViewController
         vc.album = track.album
     }
     
-
+    @IBAction func viewAlbumAction(_ sender: Any) {
+        performSegue(withIdentifier: "TrackDetailsToAlbumDetails", sender: self)
+    }
+    
 }

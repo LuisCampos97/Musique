@@ -10,11 +10,13 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     var albumName : String!
     var albumID : Int!
     
-    var searchURL = String()
+    var searchURLTrack = String()
+    var searchURLArtist = String()
     
     var mainImageArtist : UIImage?
     
     var tracks = [Track]()
+    var artists = [Artist]()
     
     typealias JSONStandard = [String : AnyObject]
     
@@ -30,24 +32,32 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         let keywords = searchBar.text
         let finalKeywords = keywords?.replacingOccurrences(of: " ", with: "+")
         
-        searchURL = "https://api.deezer.com/search?q=\(finalKeywords!)&limit=10"
+        searchURLTrack = "https://api.deezer.com/search/track?q=\(finalKeywords!)&limit=10"
+        searchURLArtist = "https://api.deezer.com/search/artist?q=\(finalKeywords!)&limit=10"
         
-        print(searchURL)
-        
-        callDeezerAPI(url: searchURL)
+        callDeezerTrackAPI(url: searchURLTrack)
+        //callDeezerArtistAPI(url: searchURLArtist)
         
         self.view.endEditing(true)
     }
     
-    func callDeezerAPI(url: String) {
+    func callDeezerTrackAPI(url: String) {
         
         AF.request(url).responseJSON(completionHandler: {
             response in
-            self.parseData(JSONData: response.data!)
+            self.parseDataTrack(JSONData: response.data!)
         })
     }
     
-    func parseData(JSONData : Data) {
+    func callDeezerArtistAPI(url: String) {
+        
+        AF.request(url).responseJSON(completionHandler: {
+            response in
+            self.parseDataArtist(JSONData: response.data!)
+        })
+    }
+    
+    func parseDataTrack(JSONData : Data) {
         do {
             let readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! JSONStandard
             if let tracksData = readableJSON["data"] as? [JSONStandard]{
@@ -92,15 +102,47 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         }
     }
     
-    fileprivate func addTrack(_ track: Track) {
+    func parseDataArtist(JSONData : Data) {
+        do {
+            let readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! JSONStandard
+            if let artistsData = readableJSON["data"] as? [JSONStandard]{
+                    for i in 0..<artistsData.count{
+                        let artist = artistsData[i]
+                        
+                        let title = artist["name"] as! String
+                        let idFromAPI = artist["id"] as! Int
+                        
+                        let mainImageURL =  URL(string: artist["picture_big"] as! String)
+                        let mainImageData = NSData(contentsOf: mainImageURL!)
+                        let picture = UIImage(data: mainImageData! as Data)!
+                        
+                        let artistObject = Artist(idFromAPI: idFromAPI, name: title, image: picture)
+                        addArtist(artistObject!)
+                        
+                        self.tableView.reloadData()
         
+                }
+                
+            }
+        }
+        catch{
+            print(error)
+        }
+    }
+    
+    fileprivate func addTrack(_ track: Track) {
         let newIndexPath = IndexPath(row: tracks.count, section: 0)
         tracks.append(track)
         tableView.insertRows(at: [newIndexPath], with: .automatic)
     }
     
-    //MARK: Table View data source
+    fileprivate func addArtist(_ artist: Artist) {
+        let newIndexPath = IndexPath(row: artists.count, section: 0)
+        artists.append(artist)
+        tableView.insertRows(at: [newIndexPath], with: .automatic)
+    }
     
+    //MARK: Table View data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
