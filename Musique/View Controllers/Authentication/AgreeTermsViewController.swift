@@ -1,6 +1,8 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import Alamofire
+import os.log
 
 class AgreeTermsViewController: UIViewController {
     
@@ -24,35 +26,10 @@ class AgreeTermsViewController: UIViewController {
     @IBAction func signUpTapped(_ sender: Any) {
         
         if(agreeSwitch.isOn) {
-            
-            // Create the user
-            Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
-                
-                // Check for errors
-                if error != nil {
-                    self.showError("Error creating User!")
-                }
-                else {
                     
-                    // User was created successfuly: store the data of user
-                    let db = Firestore.firestore()
-                    
-                    db.collection("users").addDocument(
-                        data: ["name": self.name,
-                               "email": self.email,
-                               "gender": self.gender,
-                               "birthDate": self.birthDate,
-                               "uid": result!.user.uid]) { (error) in
-                                
-                                if error != nil {
-                                    self.showError("Error saving user data")
-                                }
-                    }
-                    
-                    //Transition to the view of Select 3 favorities artists
-                    self.performSegue(withIdentifier: "AgreeTermsToFavouriteArtistsSegue", sender: self)
-                }
-            }
+            //Transition to the view of Select 3 favorities artists
+            self.performSegue(withIdentifier: "AgreeTermsToFavouriteArtistsSegue", sender: self)
+
         }
         else {
             self.showError("You must agree with terms to continue the register!")
@@ -66,7 +43,11 @@ class AgreeTermsViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! SelectFavouriteArtistsViewController
-        //vc.name = self.name
+        vc.name = self.name
+        vc.email = self.email
+        vc.password = self.password
+        vc.gender = self.gender
+        vc.birthDate = self.birthDate
     }
     
 }
