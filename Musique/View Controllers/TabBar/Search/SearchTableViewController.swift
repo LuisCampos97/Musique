@@ -27,16 +27,17 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         tracks.removeAll()
+        artists.removeAll()
         tableView.reloadData()
         
         let keywords = searchBar.text
         let finalKeywords = keywords?.replacingOccurrences(of: " ", with: "+")
         
         searchURLTrack = "https://api.deezer.com/search/track?q=\(finalKeywords!)&limit=10"
-        searchURLArtist = "https://api.deezer.com/search/artist?q=\(finalKeywords!)&limit=10"
+        searchURLArtist = "https://api.deezer.com/search/artist?q=\(finalKeywords!)&limit=3"
         
         callDeezerTrackAPI(url: searchURLTrack)
-        //callDeezerArtistAPI(url: searchURLArtist)
+        callDeezerArtistAPI(url: searchURLArtist)
         
         self.view.endEditing(true)
     }
@@ -131,11 +132,11 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     fileprivate func addTrack(_ track: Track) {
-        let newIndexPath = IndexPath(row: tracks.count, section: 0)
+        let newIndexPath = IndexPath(row: tracks.count, section: 1)
         tracks.append(track)
         tableView.insertRows(at: [newIndexPath], with: .automatic)
     }
-    
+    	
     fileprivate func addArtist(_ artist: Artist) {
         let newIndexPath = IndexPath(row: artists.count, section: 0)
         artists.append(artist)
@@ -143,11 +144,28 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     //MARK: Table View data source
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        
+        if(section == 0) {
+            label.text = "Artists"
+        } else {
+            label.text = "Tracks"
+        }        
+        
+        label.backgroundColor = UIColor.lightGray
+        
+        return label
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return artists.count
+        }
         return tracks.count
     }
     
@@ -159,20 +177,38 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
             fatalError("The dequeued cell is not an instance of TrackTableViewCell")
         }
         
-        let track = tracks[indexPath.row]
-        
-        cell.nameLabel.text = track.title
-        cell.artistNameLabel.text = track.artist?.name
-        cell.albumImage.image = track.album?.cover
+        if(indexPath.section == 0) {
+            let artist = artists[indexPath.row]
+            
+            cell.nameLabel.text = artist.name
+            cell.artistNameLabel.text = ""
+            cell.albumImage.image = artist.image
+    
+        } else {
+            let track = tracks[indexPath.row]
+            
+            cell.nameLabel.text = track.title
+            cell.artistNameLabel.text = track.artist?.name
+            cell.albumImage.image = track.album?.cover
+        }
         
         return cell
     }
     
     //MARK: Send data to Track Details View
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let indexPath = self.tableView.indexPathForSelectedRow?.row
-        let vc = segue.destination as! TrackDetailsViewController
-        vc.track = tracks[indexPath!]
+        let indexPath = self.tableView.indexPathForSelectedRow
+        
+        //TODO: Ter dois segues da mesma TableViewCell
+        
+        if indexPath?.section == 0 {
+            let vc = segue.destination as! ArtistDetailsViewController
+            vc.artist = artists[indexPath!.row]
+        } else {
+            let vc = segue.destination as! TrackDetailsViewController
+            vc.track = tracks[indexPath!.row]
+        }
+        
     }
     
 }
