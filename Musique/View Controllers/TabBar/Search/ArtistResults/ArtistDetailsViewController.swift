@@ -163,22 +163,6 @@ class ArtistDetailsViewController: UIViewController, UITableViewDataSource, UITa
         return cell!
     }
     
-    
-    @IBAction func addArtistToFavouritesButton(_ sender: Any) {
-        
-        if isArtistFav {
-            let image = UIImage(named: "Heart_icon.png")
-            sender.setImage(image, for: .normal)
-        } else {
-            let image = UIImage(named: "heart_icon_selected.png")
-            sender.setImage(image, for: .normal)
-        }
-
-        isCouponFav = !isCouponFav
-        
-    }
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //Data to send from TableView
         if(segue.identifier == "ArtistDetailsToTrackDetails") {
