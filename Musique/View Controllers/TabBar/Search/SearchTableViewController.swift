@@ -8,6 +8,9 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var tableViewArtists: UITableView!
     @IBOutlet weak var tableViewTracks: UITableView!
     
+    @IBOutlet weak var labelArtists: UILabel!
+    @IBOutlet weak var labelTracks: UILabel!
+    
     var artistName : String!
     var albumName : String!
     var albumID : Int!
@@ -24,6 +27,8 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        labelArtists.text = ""
+        labelTracks.text = ""
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -95,6 +100,7 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
                             track?.artist = artistObject
                             
                             addTrack(track!)
+                            labelTracks.text = "Tracks"
                             self.tableViewTracks.reloadData()
                         }
                 }
@@ -123,6 +129,7 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
                         let artistObject = Artist(idFromAPI: idFromAPI, name: title, image: picture)
                         addArtist(artistObject!)
                         
+                        labelArtists.text = "Artists"
                         self.tableViewArtists.reloadData()
         
                 }
