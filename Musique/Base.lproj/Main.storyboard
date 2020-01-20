@@ -362,6 +362,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FqT-Fh-x72">
+                                <rect key="frame" x="321" y="54" width="38" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.84307867288589478" green="0.17897006869316101" blue="0.17947384715080261" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="star" catalog="system">
+                                    <color key="titleColor" red="0.83217883110046387" green="0.17722216248512268" blue="0.17537087202072144" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -514,8 +522,9 @@
                                     <outlet property="delegate" destination="UtX-uK-zni" id="wRy-FY-RcZ"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TP-R3-6Sy">
-                                <rect key="frame" x="337" y="44" width="22" height="22"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TP-R3-6Sy">
+                                <rect key="frame" x="321" y="57" width="38" height="37"/>
+                                <color key="tintColor" red="0.8423348069190979" green="0.17898920178413391" blue="0.17952978610992432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="star" catalog="system"/>
                             </button>
                         </subviews>
@@ -523,7 +532,7 @@
                         <constraints>
                             <constraint firstItem="vml-WV-PeH" firstAttribute="bottom" secondItem="hxy-DA-gLM" secondAttribute="bottom" constant="6" id="Iso-sX-JQx"/>
                             <constraint firstItem="uPF-W4-mLF" firstAttribute="top" secondItem="Kot-pm-Cic" secondAttribute="bottom" constant="8" id="Pyz-4i-SEW"/>
-                            <constraint firstItem="3TP-R3-6Sy" firstAttribute="top" secondItem="vml-WV-PeH" secondAttribute="top" id="RAz-LA-oS0"/>
+                            <constraint firstItem="3TP-R3-6Sy" firstAttribute="top" secondItem="vml-WV-PeH" secondAttribute="top" constant="13" id="RAz-LA-oS0"/>
                             <constraint firstItem="ny0-5g-u7f" firstAttribute="centerX" secondItem="Kot-pm-Cic" secondAttribute="centerX" id="Rev-zu-XhF"/>
                             <constraint firstItem="F8x-CS-Tso" firstAttribute="leading" secondItem="vml-WV-PeH" secondAttribute="leading" constant="112.5" id="ZJC-Hr-amm"/>
                             <constraint firstItem="F8x-CS-Tso" firstAttribute="centerX" secondItem="ny0-5g-u7f" secondAttribute="centerX" id="d50-nF-u6G"/>
@@ -551,7 +560,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QxA-6D-9gS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4836" y="2148"/>
+            <point key="canvasLocation" x="4836" y="2147.6761619190406"/>
         </scene>
         <!--Album Details View Controller-->
         <scene sceneID="TqF-6e-Nna">
@@ -615,14 +624,25 @@
                                     <outlet property="delegate" destination="vG5-8e-Njf" id="1CU-94-9EJ"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WLF-oV-k3K">
+                                <rect key="frame" x="321" y="57" width="38" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="cyx-yQ-9Ej"/>
+                                </constraints>
+                                <color key="tintColor" red="0.84456640481948853" green="0.17893165349960327" blue="0.1793617308139801" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="star" catalog="system"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstItem="XX8-gQ-NU4" firstAttribute="leading" secondItem="a1A-a6-roh" secondAttribute="leading" constant="112" id="3sZ-gg-kD7"/>
+                            <constraint firstItem="WLF-oV-k3K" firstAttribute="top" secondItem="a1A-a6-roh" secondAttribute="top" constant="13" id="9kJ-7P-ZJE"/>
                             <constraint firstItem="0ED-my-M55" firstAttribute="leading" secondItem="a1A-a6-roh" secondAttribute="leading" constant="133" id="MxY-iJ-UMP"/>
                             <constraint firstItem="a1A-a6-roh" firstAttribute="trailing" secondItem="0ED-my-M55" secondAttribute="trailing" constant="134" id="OXh-ia-hwq"/>
                             <constraint firstItem="XX8-gQ-NU4" firstAttribute="top" secondItem="a1A-a6-roh" secondAttribute="top" constant="73" id="R2B-b0-sae"/>
                             <constraint firstItem="0ED-my-M55" firstAttribute="top" secondItem="XX8-gQ-NU4" secondAttribute="bottom" constant="8" id="TJI-Wb-5nW"/>
+                            <constraint firstItem="WLF-oV-k3K" firstAttribute="trailing" secondItem="8iv-W8-JAr" secondAttribute="trailingMargin" id="W8c-oE-jzO"/>
+                            <constraint firstItem="WLF-oV-k3K" firstAttribute="leading" secondItem="a1A-a6-roh" secondAttribute="leading" constant="321" id="sWl-2k-KzF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="a1A-a6-roh"/>
                     </view>
@@ -892,6 +912,9 @@
                         <outlet property="favouriteAlbumsCollectionView" destination="MBY-1t-9bL" id="QcZ-FW-rSK"/>
                         <outlet property="favouriteArtistsCollectionView" destination="358-9W-EVk" id="jB3-Sd-6LZ"/>
                         <outlet property="favouriteTracksCollectionView" destination="SS2-dK-Yp3" id="6ra-CK-YZv"/>
+                        <segue destination="ELT-Z5-l5L" kind="show" identifier="FavouritesToTrackSegue" id="rr9-Rh-e5h"/>
+                        <segue destination="UtX-uK-zni" kind="show" identifier="FavouritesToArtistSegue" id="8lx-PQ-mIm"/>
+                        <segue destination="vG5-8e-Njf" kind="show" identifier="FavouritesToAlbumSegue" id="rTf-up-lLo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gqT-oK-HvN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2076,8 +2099,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="XNr-G0-fiJ"/>
-        <segue reference="pZx-vT-jhb"/>
-        <segue reference="rlu-NK-wKG"/>
-        <segue reference="mcR-DE-sEW"/>
+        <segue reference="Q7f-jb-crc"/>
+        <segue reference="8lx-PQ-mIm"/>
+        <segue reference="aCH-51-4Hi"/>
     </inferredMetricsTieBreakers>
 </document>

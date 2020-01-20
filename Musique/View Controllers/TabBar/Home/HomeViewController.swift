@@ -211,7 +211,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                                     
                                     let album = Album.init(idFromAPI: albumID, name: albumName, cover: cover, artist: artistObject)
                                     
-                                    let track = Track.init(idFromAPI: idFromAPI, title: title, duration: duration, image: cover)
+                                    let track = Track.init(idFromAPI: idFromAPI, title: title, duration: duration, image: mainImageArtist!)
                                     track?.album = album
                                     track?.artist = artistObject
                                     
