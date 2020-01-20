@@ -1,5 +1,7 @@
 import UIKit
 import Alamofire
+import Firebase
+import FirebaseDatabase
 
 class ArtistDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -8,11 +10,15 @@ class ArtistDetailsViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionVIew: UICollectionView!
     
+    @IBOutlet weak var addArtistToFavouritesButton: UIButton!
     //Artist from SearchTableViewController
     var artist: Artist?
     
     var isArtistFav = UserDefaults.standard.bool(forKey: "isArtistFav")
 
+    var literalEmptyStar = UIImage()
+    var literalHighlightedStar = UIImage()
+    var buttonBackGround = UIImage()
     
     var urlAlbums = String()
     var urlTopTracks = String()
@@ -22,8 +28,15 @@ class ArtistDetailsViewController: UIViewController, UITableViewDataSource, UITa
     
     typealias JSONStandard = [String : AnyObject]
     
+    var ref: DatabaseReference!
+
+       let db = Firestore.firestore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.literalEmptyStar = UIImage(named: "emptyStar")!
+        self.literalHighlightedStar = UIImage(named: "highlightedStar")!
+        
         
         urlAlbums = "https://api.deezer.com/artist/\(String(artist!.idFromAPI))/albums&limit=3"
         urlTopTracks = "https://api.deezer.com/artist/\(String(artist!.idFromAPI))/top"
@@ -39,6 +52,69 @@ class ArtistDetailsViewController: UIViewController, UITableViewDataSource, UITa
             response in
             self.parseDataTracks(JSONData: response.data!)
         })
+        
+        self.buttonBackGround = addArtistToFavouritesButton.currentBackgroundImage!
+   
+        ref = Database.database().reference()
+
+        let user = Auth.auth().currentUser
+        
+        db.collection("users").document(user!.uid).addSnapshotListener { documentSnapshot, error in
+          guard let document = documentSnapshot else {
+            print("Error fetching document: \(error!)")
+            return
+          }
+          guard let data = document.data() else {
+            print("Document data was empty.")
+            return
+          }
+          if  (data["favouriteArtists"] != nil){
+              let artists = data["favouriteArtists"] as! [Any]
+               for i in artists {
+                if i as? Int == self.artist?.idFromAPI {
+                    self.addArtistToFavouritesButton.setBackgroundImage(#imageLiteral(resourceName: "highlightedStar"), for: .normal)
+
+                }
+               }
+          } else {
+            self.addArtistToFavouritesButton.setBackgroundImage(#imageLiteral(resourceName: "emptyStar"), for: .normal)
+
+          }
+        }
+        
+     }
+   
+   
+     @IBAction func addArtistToFavouritesButtonPressed(_ sender: Any) {
+        
+        
+        self.buttonBackGround = addArtistToFavouritesButton.currentBackgroundImage!
+        var literalEmptyStarData: NSData = self.literalEmptyStar.pngData()! as NSData
+        var buttonBackGroundData : NSData = self.buttonBackGround.pngData()! as NSData
+        
+        ref = Database.database().reference()
+
+        let user = Auth.auth().currentUser
+
+        let favourtieArtistsRef = db.collection("users").document(user!.uid)
+              
+        if literalEmptyStarData.isEqual(buttonBackGroundData) {
+            addArtistToFavouritesButton.setBackgroundImage(#imageLiteral(resourceName: "highlightedStar"), for: .normal)
+            // Atomically add a new region to the "regions" array field.
+            favourtieArtistsRef.updateData([
+                "favouriteArtists": FieldValue.arrayUnion([artist?.idFromAPI])
+            ])
+        }
+        else {
+            print("fica vazio")
+            addArtistToFavouritesButton.setBackgroundImage(#imageLiteral(resourceName: "emptyStar"), for: .normal)
+            favourtieArtistsRef.updateData([
+                "favouriteArtists": FieldValue.arrayRemove([artist?.idFromAPI])
+            ])
+            
+        }
+        
+
     }
     
     
@@ -162,6 +238,9 @@ class ArtistDetailsViewController: UIViewController, UITableViewDataSource, UITa
         
         return cell!
     }
+    
+    
+   
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //Data to send from TableView

@@ -1,5 +1,7 @@
 import UIKit
 import Alamofire
+import Firebase
+import FirebaseDatabase
 
 class AlbumDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -8,6 +10,17 @@ class AlbumDetailsViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var albumCover: UIImageView!
     @IBOutlet weak var albumTitle: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var addAlbumToFavouritesButton: UIButton!
+
+    
+    var literalEmptyStar = UIImage()
+    var literalHighlightedStar = UIImage()
+    var buttonBackGround = UIImage()
+    
+    var ref: DatabaseReference!
+
+    let db = Firestore.firestore()
     
     typealias JSONStandard = [String : AnyObject]
     
@@ -18,6 +31,9 @@ class AlbumDetailsViewController: UIViewController, UITableViewDataSource, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.literalEmptyStar = UIImage(named: "emptyStar")!
+        self.literalHighlightedStar = UIImage(named: "highlightedStar")!
+        
         let url = "https://api.deezer.com/album/\(String(album.idFromAPI))"
         
         albumCover.image = album.cover
@@ -27,6 +43,35 @@ class AlbumDetailsViewController: UIViewController, UITableViewDataSource, UITab
             response in
             self.parseData(JSONData: response.data!)
         })
+        
+        self.buttonBackGround = addAlbumToFavouritesButton.currentBackgroundImage!
+        
+             ref = Database.database().reference()
+
+             let user = Auth.auth().currentUser
+             
+             db.collection("users").document(user!.uid).addSnapshotListener { documentSnapshot, error in
+               guard let document = documentSnapshot else {
+                 print("Error fetching document: \(error!)")
+                 return
+               }
+               guard let data = document.data() else {
+                 print("Document data was empty.")
+                 return
+               }
+               if  (data["favouriteAlbums"] != nil){
+                   let albums = data["favouriteAlbums"] as! [Any]
+                    for i in albums {
+                     if i as? Int == self.album?.idFromAPI {
+                         self.addAlbumToFavouritesButton.setBackgroundImage(#imageLiteral(resourceName: "highlightedStar"), for: .normal)
+
+                     }
+                    }
+               } else {
+                 self.addAlbumToFavouritesButton.setBackgroundImage(#imageLiteral(resourceName: "emptyStar"), for: .normal)
+
+               }
+             }
     }
     
     func parseData(JSONData: Data) {
@@ -96,6 +141,38 @@ class AlbumDetailsViewController: UIViewController, UITableViewDataSource, UITab
         cell?.trackDuration.text = Utils.timeString(numberToConvert: track.duration)
         
         return cell!
+    }
+    
+     @IBAction func addAlbumToFavouritesButtonPressed(_ sender: Any) {
+        
+        
+        self.buttonBackGround = addAlbumToFavouritesButton.currentBackgroundImage!
+        var literalEmptyStarData: NSData = self.literalEmptyStar.pngData()! as NSData
+        var buttonBackGroundData : NSData = self.buttonBackGround.pngData()! as NSData
+        
+        ref = Database.database().reference()
+
+        let user = Auth.auth().currentUser
+
+        let favourtieAlbumsRef = db.collection("users").document(user!.uid)
+              
+        if literalEmptyStarData.isEqual(buttonBackGroundData) {
+            addAlbumToFavouritesButton.setBackgroundImage(#imageLiteral(resourceName: "highlightedStar"), for: .normal)
+            // Atomically add a new region to the "regions" array field.
+            favourtieAlbumsRef.updateData([
+                "favouriteAlbums": FieldValue.arrayUnion([album?.idFromAPI])
+            ])
+        }
+        else {
+            print("fica vazio")
+            addAlbumToFavouritesButton.setBackgroundImage(#imageLiteral(resourceName: "emptyStar"), for: .normal)
+            favourtieAlbumsRef.updateData([
+                "favouriteAlbums": FieldValue.arrayRemove([album?.idFromAPI])
+            ])
+            
+        }
+        
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
