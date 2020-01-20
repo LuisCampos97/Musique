@@ -526,6 +526,9 @@
                                 <rect key="frame" x="321" y="57" width="38" height="37"/>
                                 <color key="tintColor" red="0.8423348069190979" green="0.17898920178413391" blue="0.17952978610992432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="star" catalog="system"/>
+                                <connections>
+                                    <action selector="addArtistToFavouritesButton:" destination="UtX-uK-zni" eventType="touchUpInside" id="huf-Q9-u0h"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2099,7 +2102,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="XNr-G0-fiJ"/>
-        <segue reference="Q7f-jb-crc"/>
+        <segue reference="5aE-zj-pGe"/>
         <segue reference="8lx-PQ-mIm"/>
         <segue reference="aCH-51-4Hi"/>
     </inferredMetricsTieBreakers>
