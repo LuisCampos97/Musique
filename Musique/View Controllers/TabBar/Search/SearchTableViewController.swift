@@ -2,9 +2,11 @@ import UIKit
 import Alamofire
 import os.log
 
-class SearchTableViewController: UITableViewController, UISearchBarDelegate {
+class SearchTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableViewArtists: UITableView!
+    @IBOutlet weak var tableViewTracks: UITableView!
     
     var artistName : String!
     var albumName : String!
@@ -28,7 +30,8 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         
         tracks.removeAll()
         artists.removeAll()
-        tableView.reloadData()
+        self.tableViewTracks.reloadData()
+        self.tableViewArtists.reloadData()
         
         let keywords = searchBar.text
         let finalKeywords = keywords?.replacingOccurrences(of: " ", with: "+")
@@ -78,7 +81,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                         let artistObject = Artist(idFromAPI: idFromAPI, name: artistName, image: mainImageArtist!)
                         
                         if let album = item["album"] as? JSONStandard{
-                            let mainImageURL =  URL(string: album["cover_big"] as! String) 
+                            let mainImageURL =  URL(string: album["cover_big"] as! String)
                             let mainImageData = NSData(contentsOf: mainImageURL!)
                             let cover = UIImage(data: mainImageData! as Data)!
                             
@@ -92,7 +95,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                             track?.artist = artistObject
                             
                             addTrack(track!)
-                            self.tableView.reloadData()
+                            self.tableViewTracks.reloadData()
                         }
                 }
                 
@@ -120,7 +123,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                         let artistObject = Artist(idFromAPI: idFromAPI, name: title, image: picture)
                         addArtist(artistObject!)
                         
-                        self.tableView.reloadData()
+                        self.tableViewArtists.reloadData()
         
                 }
                 
@@ -132,83 +135,70 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     fileprivate func addTrack(_ track: Track) {
-        let newIndexPath = IndexPath(row: tracks.count, section: 1)
+        let newIndexPath = IndexPath(row: tracks.count, section: 0)
         tracks.append(track)
-        tableView.insertRows(at: [newIndexPath], with: .automatic)
+        tableViewTracks.insertRows(at: [newIndexPath], with: .automatic)
     }
-    	
+        
     fileprivate func addArtist(_ artist: Artist) {
         let newIndexPath = IndexPath(row: artists.count, section: 0)
         artists.append(artist)
-        tableView.insertRows(at: [newIndexPath], with: .automatic)
+        tableViewArtists.insertRows(at: [newIndexPath], with: .automatic)
     }
     
     //MARK: Table View data source
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label = UILabel()
-        
-        if(section == 0) {
-            label.text = "Artists"
-        } else {
-            label.text = "Tracks"
-        }        
-        
-        label.backgroundColor = UIColor.lightGray
-        
-        return label
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView == tableViewArtists {
             return artists.count
         }
         return tracks.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let cellIdentifier = "TrackCell"
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? TrackTableViewCell else {
-            fatalError("The dequeued cell is not an instance of TrackTableViewCell")
-        }
-        
-        if(indexPath.section == 0) {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if tableView == tableViewArtists {
+            let cellIdentifier = "ArtistCell"
+            
+            guard let cell = tableViewArtists.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ArtistTableViewCell else {
+                fatalError("The dequeued cell is not an instance of TrackTableViewCell")
+            }
+            
             let artist = artists[indexPath.row]
             
-            cell.nameLabel.text = artist.name
-            cell.artistNameLabel.text = ""
-            cell.albumImage.image = artist.image
-    
-        } else {
-            let track = tracks[indexPath.row]
+            cell.artistName.text = artist.name
+            cell.artistImage.image = artist.image
             
-            cell.nameLabel.text = track.title
-            cell.artistNameLabel.text = track.artist?.name
-            cell.albumImage.image = track.album?.cover
+            return cell
         }
         
+        let cellIdentifier = "TrackCell"
+            
+        guard let cell = tableViewTracks.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? TrackTableViewCell else {
+                fatalError("The dequeued cell is not an instance of TrackTableViewCell")
+        }
+            
+        let track = tracks[indexPath.row]
+            
+        cell.nameLabel.text = track.title
+        cell.artistNameLabel.text = track.artist?.name
+        cell.albumImage.image = track.album?.cover
+            
         return cell
     }
     
     //MARK: Send data to Track Details View
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let indexPath = self.tableView.indexPathForSelectedRow
-        
-        //TODO: Ter dois segues da mesma TableViewCell
-        
-        if indexPath?.section == 0 {
+        if(segue.identifier == "SearchToArtistDetails") {
+            let indexPathArtist = self.tableViewArtists.indexPathForSelectedRow
             let vc = segue.destination as! ArtistDetailsViewController
-            vc.artist = artists[indexPath!.row]
-        } else {
-            let vc = segue.destination as! TrackDetailsViewController
-            vc.track = tracks[indexPath!.row]
+            vc.artist = artists[indexPathArtist!.row]
+        } else if(segue.identifier == ""){
+            let indexPathTrack = self.tableViewTracks.indexPathForSelectedRow
+            let vcTrack = segue.destination as! TrackDetailsViewController
+            vcTrack.track = tracks[indexPathTrack!.row]
         }
-        
     }
-    
 }

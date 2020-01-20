@@ -1,13 +1,14 @@
 import UIKit
 import Alamofire
 
-class ArtistDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate/*, UICollectionViewDataSource, UICollectionViewDelegate  */{
+class ArtistDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var artistImage: UIImageView!
     @IBOutlet weak var artistName: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionVIew: UICollectionView!
     
-    //Variavel que é enviada do SearchTableViewController
+    //Artist from SearchTableViewController
     var artist: Artist?
     
     var urlAlbums = String()
@@ -21,7 +22,7 @@ class ArtistDetailsViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        urlAlbums = "https://api.deezer.com/artist/\(String(artist!.idFromAPI))/albums"
+        urlAlbums = "https://api.deezer.com/artist/\(String(artist!.idFromAPI))/albums&limit=3"
         urlTopTracks = "https://api.deezer.com/artist/\(String(artist!.idFromAPI))/top"
         
         //MARK: Search in API the artist's albums
@@ -57,6 +58,7 @@ class ArtistDetailsViewController: UIViewController, UITableViewDataSource, UITa
                     let album = Album(idFromAPI: idFromAPI, name: name, cover: cover, artist: artist)
                     
                     addAlbum(album: album!)
+                    self.collectionVIew.reloadData()
                     
                 }
                 
@@ -67,7 +69,9 @@ class ArtistDetailsViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func addAlbum(album: Album) {
-        
+        let newIndexPath = IndexPath(row: albums.count, section: 0)
+        albums.append(album)
+        collectionVIew.insertItems(at: [newIndexPath])
     }
     
     //MARK: Get top5 tracks from Artist
@@ -98,6 +102,9 @@ class ArtistDetailsViewController: UIViewController, UITableViewDataSource, UITa
                         track?.artist = artist
                         
                         addTrack(track: track!)
+                        
+                        artistName.text = artist?.name
+                        artistImage.image = artist?.image
                         
                         self.tableView.reloadData()
                     }
@@ -135,9 +142,8 @@ class ArtistDetailsViewController: UIViewController, UITableViewDataSource, UITa
         return cell!
     }
     
-    //MARK: CollectionView dats source
-    
-    /*func numberOfSections(in collectionView: UICollectionView) -> Int {
+    //MARK: CollectionView data source
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
@@ -146,7 +152,29 @@ class ArtistDetailsViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCell", for: indexPath) as? AlbumsArtistDetailsCollectionViewCell
         
+        let album = albums[indexPath.row]
+        cell!.albumCover.image = album.cover
+        
+        return cell!
     }
-    */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //Data to send from TableView
+        if(segue.identifier == "ArtistDetailsToTrackDetails") {
+            let indexPathTableView = self.tableView.indexPathForSelectedRow
+            
+            let tdvc = segue.destination as! TrackDetailsViewController
+            tdvc.track = topTracks[indexPathTableView!.row]
+        } else {
+            //Data to send from CollectionView
+            let cell =    sender as! AlbumsArtistDetailsCollectionViewCell
+            let indexPathCollectionView = self.collectionVIew.indexPath(for: cell)
+            
+            let adbc = segue.destination as! AlbumDetailsViewController
+            adbc.album = albums[indexPathCollectionView!.row]
+        }
+    }
 }
+    
