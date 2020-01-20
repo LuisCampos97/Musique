@@ -34,6 +34,8 @@ class FavoritesViewController: UIViewController, UICollectionViewDataSource, UIC
     
         override func viewDidLoad() {
             super.viewDidLoad()
+            
+            print("teste_teste_teste_teste")
         
             favouriteArtistsCollectionView.delegate = self
             favouriteArtistsCollectionView.dataSource = self
@@ -50,29 +52,38 @@ class FavoritesViewController: UIViewController, UICollectionViewDataSource, UIC
 
             let docRef = db.collection("users").document(user!.uid)
             
-            docRef.getDocument { (document, error) in
-                 if let document = document, document.exists {
-                    let albums : [Any]
-                    let tracks : [Any]
-                    let docData = document.data()
-                    let artists = docData!["favouriteArtists"] as! [Any]
-                    if  (docData!["favouriteAlbums"] != nil){
-                        albums = (docData!["favouriteAlbums"] as? [Any])!
-                        print("albums")
-                    } else {
-                        albums = []
-                    }
-                    if  (docData!["favouriteAlbums"] != nil){
-                        tracks = docData!["favouriteTracks"] as! [Any]
-                        print("albums")
-                    } else {
-                        tracks = []
-                    }
-                    self.callDeezerAPI(artists: artists, albums: albums, tracks: tracks)
-                 } else {
-                     print("Document does not exist")
-                  }
+            
+            db.collection("users").document(user!.uid)
+            .addSnapshotListener { documentSnapshot, error in
+              guard let document = documentSnapshot else {
+                print("Error fetching document: \(error!)")
+                return
+              }
+              guard let data = document.data() else {
+                print("Document data was empty.")
+                return
+              }
+              let albums : [Any]
+              let tracks : [Any]
+                let artists = data["favouriteArtists"] as! [Any]
+                if  (data["favouriteAlbums"] != nil){
+                    albums = (data["favouriteAlbums"] as? [Any])!
+                  print("albums")
+              } else {
+                  albums = []
+              }
+                if  (data["favouriteAlbums"] != nil){
+                    tracks = data["favouriteTracks"] as! [Any]
+                  print("albums")
+              } else {
+                  tracks = []
+              }
+                self.favouriteArtists = [Artist]()
+                self.favouriteAlbums = [Album]()
+                self.favouriteTracks = [Track]()
+              self.callDeezerAPI(artists: artists, albums: albums, tracks: tracks)
             }
+           
         }
         
         //Number of views
@@ -244,6 +255,7 @@ class FavoritesViewController: UIViewController, UICollectionViewDataSource, UIC
         }
            
         fileprivate func addArtist(_ artist: Artist) {
+            
            favouriteArtists.append(artist)
         }
         fileprivate func addAlbum(_ album: Album) {
