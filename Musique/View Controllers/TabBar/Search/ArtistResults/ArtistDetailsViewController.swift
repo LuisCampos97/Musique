@@ -97,7 +97,7 @@ class ArtistDetailsViewController: UIViewController, UITableViewDataSource, UITa
                         
                         let album = Album.init(idFromAPI: albumID!, name: albumName!, cover: cover, artist: artist)
                         
-                        let track = Track.init(idFromAPI: idFromAPI, title: tile, duration: duration)
+                        let track = Track.init(idFromAPI: idFromAPI, title: tile, duration: duration, image: cover)
                         track?.album = album
                         track?.artist = artist
                         

@@ -54,7 +54,7 @@ class AlbumDetailsViewController: UIViewController, UITableViewDataSource, UITab
                             let title = item["title"] as! String
                             let duration = item["duration"] as! Int
                             
-                            let track = Track(idFromAPI: idFromAPI, title: title, duration: duration)
+                            let track = Track(idFromAPI: idFromAPI, title: title, duration: duration, image: artist.image)
                             track?.album = album
                             track?.artist = artist
                             

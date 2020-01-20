@@ -95,7 +95,7 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
                             
                             let album = Album.init(idFromAPI: albumID, name: albumName, cover: cover, artist: artistObject)
                             
-                            let track = Track.init(idFromAPI: idFromAPI, title: title, duration: duration)
+                            let track = Track.init(idFromAPI: idFromAPI, title: title, duration: duration, image: cover)
                             track?.album = album
                             track?.artist = artistObject
                             

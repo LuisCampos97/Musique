@@ -8,6 +8,8 @@ class Track: NSObject {
     private var _duration: Int
     private var _album: Album?
     private var _artist: Artist?
+    var image: UIImage
+
     
     var idFromAPI: Int {
         get {
@@ -48,7 +50,7 @@ class Track: NSObject {
     }
     
     //MARK: Initialization
-    init?(idFromAPI: Int, title: String, duration: Int) {
+    init?(idFromAPI: Int, title: String, duration: Int, image: UIImage) {
         
         if title.isEmpty {
             return nil
@@ -58,5 +60,6 @@ class Track: NSObject {
         self._idFromAPI = idFromAPI
         self._title = title
         self._duration = duration
+        self.image = image
     }
 }
