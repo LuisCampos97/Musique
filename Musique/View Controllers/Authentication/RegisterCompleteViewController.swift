@@ -38,22 +38,62 @@ class RegisterCompleteViewController: UIViewController {
 
                 // User was created successfuly: store the data of user
                 let db = Firestore.firestore()
-
-                db.collection("users").addDocument(
-                    data: ["name": self.name,
-                           "email": self.email,
-                           "gender": self.gender,
-                           "birthDate": self.birthDate,
-                           "uid": result!.user.uid]) { (error) in
-
-                            if error != nil {
-                                self.error = error
-                                print("ERRO\n\n\n\n\n\n\n\n\n\n\n\n\n")
-                                print(error)
-                                self.showError("Error saving user data")
-                            }
-                            
+                
+                switch self._selectedCells.count {
+                case 1:
+                    db.collection("users").document(result!.user.uid).setData(
+                        ["name": self.name,
+                               "email": self.email,
+                               "gender": self.gender,
+                               "birthDate": self.birthDate,
+                               "favouriteArtists":[self._selectedCells[0]],
+                        "uid": result!.user.uid]) { (error) in
+                                if error != nil {
+                                    self.error = error
+                                    self.showError("Error saving user data")
+                                }
+                    }
+                case 2:
+                    db.collection("users").document(result!.user.uid).setData(
+                            ["name": self.name,
+                               "email": self.email,
+                               "gender": self.gender,
+                               "birthDate": self.birthDate,
+                               "favouriteArtists":[self._selectedCells[0], self._selectedCells[1]],
+                               "uid": result!.user.uid]) { (error) in
+                                if error != nil {
+                                    self.error = error
+                                    self.showError("Error saving user data")
+                                }
+                    }
+                case 3:
+                    db.collection("users").document(result!.user.uid).setData(
+                            ["name": self.name,
+                               "email": self.email,
+                               "gender": self.gender,
+                               "birthDate": self.birthDate,
+                               "favouriteArtists":[self._selectedCells[0], self._selectedCells[1], self._selectedCells[2]],
+                               "uid": result!.user.uid]) { (error) in
+                                if error != nil {
+                                    self.error = error
+                                    self.showError("Error saving user data")
+                                }
+                    }
+                default:
+                    db.collection("users").document(result!.user.uid).setData(
+                            ["name": self.name,
+                               "email": self.email,
+                               "gender": self.gender,
+                               "birthDate": self.birthDate,
+                               "uid": result!.user.uid]) { (error) in
+                                if error != nil {
+                                    self.error = error
+                                    self.showError("Error saving user data")
+                                }
+                    }
                 }
+                
+                
 
             }
         }
@@ -67,7 +107,19 @@ class RegisterCompleteViewController: UIViewController {
             self.showError("Error creating User!")
 
         }else{
-            self.performSegue(withIdentifier: "SignUpToDashboardSegue", sender: self)
+            
+            Auth.auth().signIn(withEmail: self.email, password: self.password) { (result, error) in
+                if (error != nil) {
+                    //Couldn't Sign in
+                    self.showError("Unable to sign in")
+                }
+                else {
+                    //Transition to HomeView
+                    self.performSegue(withIdentifier: "SignUpToDashboardSegue", sender: self)
+                }
+            }
+            
+            
         }
     
     }

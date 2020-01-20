@@ -6,11 +6,7 @@ import os.log
 class SelectFavouriteArtistsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate  {
     @IBOutlet weak var favouriteArtistsCollectionView: UICollectionView!
     @IBOutlet weak var nextPageButton: UIButton!
-    
-    enum Mode {
-        case skip
-        case select
-    }
+
     
     var name = ""
     var email = ""
@@ -26,7 +22,6 @@ class SelectFavouriteArtistsViewController: UIViewController, UICollectionViewDa
         
     var _selectedCells : NSMutableArray = []
     
-    var mMode: Mode = .skip
 
     override func viewDidLoad() {
           callDeezerAPI()

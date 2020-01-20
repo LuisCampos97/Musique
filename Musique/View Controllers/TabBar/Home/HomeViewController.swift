@@ -32,6 +32,9 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     var latitude = String()
     var longitude = String()
     
+    var weather : String!
+    var localization : String!
+    
     typealias JSONStandard = [String : AnyObject]
     
     override func viewDidLoad() {
@@ -110,12 +113,15 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             if let weatherData = readableJSON["weather"] as? [JSONStandard] {
                 let weatherMain = weatherData[0]
                 
-                let weather = weatherMain["main"] as! String
-                
-                if(weather == "Clouds") {
-                    
-                }
+                weather = weatherMain["main"] as? String
             }
+            
+            if let mainTemperature = readableJSON["main"] as? JSONStandard {
+                let temperature = mainTemperature["temp"] as? String
+                weather += ", \(temperature)"
+            }
+            
+            performSegue(withIdentifier: "HomeToSearch", sender: self)
         } catch {
             print(error)
         }
@@ -326,6 +332,12 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         if(segue.identifier == "HomeToTrackSegue") {
             let vc = segue.destination as! TrackDetailsViewController
             vc.track = topTracks[trackIndex]
+        }
+        
+        if(segue.identifier == "HomeToSearch") {
+            let vc = segue.destination as! WeatherViewController
+            vc.weather = weather
+            vc.localization = ""
         }
         
     }
