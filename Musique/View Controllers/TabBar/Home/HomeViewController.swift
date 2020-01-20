@@ -32,8 +32,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     var latitude = String()
     var longitude = String()
     
-    var weather : String!
-    var localization : String!
+    var weather = String()
+    var location = String()
     
     typealias JSONStandard = [String : AnyObject]
     
@@ -67,8 +67,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         let latitudeFromLocation = userLocation.coordinate.latitude as Double
         let longitudeFromLocation = userLocation.coordinate.longitude as Double
         
-        latitude = String(round(1000*latitudeFromLocation)/1000)
-        longitude = String(round(1000*longitudeFromLocation)/1000)
+        self.latitude = String(round(1000*latitudeFromLocation)/1000)
+        self.longitude = String(round(1000*longitudeFromLocation)/1000)
     }
     
     //MARK: Shake feature
@@ -91,11 +91,13 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
                 locationManager.desiredAccuracy = 1.0
                 locationManager.delegate = self
                 locationManager.startUpdatingLocation()
-            
-                AF.request("https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&APPID=e7b2054dc37b1f464d912c00dd309595&units=Metric").responseJSON(completionHandler: {
-                    response in
-                    self.parseDataWeather(JSONData: response.data!)
-                })
+                
+                if(latitude != "" && longitude != "") {
+            AF.request("https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&APPID=e7b2054dc37b1f464d912c00dd309595&units=Metric").responseJSON(completionHandler: {
+                        response in
+                        self.parseDataWeather(JSONData: response.data!)
+                    })
+                }
                 
             } else {
                 let alertController = UIAlertController(title: "Warning", message:
@@ -110,16 +112,20 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     func parseDataWeather(JSONData: Data) {
         do {
             let readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! JSONStandard
+            
+            let locationName = readableJSON["name"] as! String
+            location = "\(latitude), \(longitude) - \(locationName)"
+            
             if let weatherData = readableJSON["weather"] as? [JSONStandard] {
                 let weatherMain = weatherData[0]
-                
-                weather = weatherMain["main"] as? String
+                weather = weatherMain["main"] as! String
             }
             
             if let mainTemperature = readableJSON["main"] as? JSONStandard {
                 let temperature = mainTemperature["temp"] as? String
-                weather += ", \(temperature)"
+                weather = weather + ", \(temperature) ºC"
             }
+            
             
             performSegue(withIdentifier: "HomeToSearch", sender: self)
         } catch {
@@ -335,11 +341,11 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
         
         if(segue.identifier == "HomeToSearch") {
+            print(weather)
             let vc = segue.destination as! WeatherViewController
             vc.weather = weather
-            vc.localization = ""
+            vc.location = location
         }
-        
     }
     
 }
