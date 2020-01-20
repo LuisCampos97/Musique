@@ -113,17 +113,11 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         do {
             let readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! JSONStandard
             
-            let locationName = readableJSON["name"] as! String
-            location = "\(latitude), \(longitude) - \(locationName)"
+            location = readableJSON["name"] as! String
             
             if let weatherData = readableJSON["weather"] as? [JSONStandard] {
                 let weatherMain = weatherData[0]
                 weather = weatherMain["main"] as! String
-            }
-            
-            if let mainTemperature = readableJSON["main"] as? JSONStandard {
-                let temperature = mainTemperature["temp"] as? String
-                weather = weather + ", \(temperature) ºC"
             }
             
             
@@ -341,7 +335,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
         
         if(segue.identifier == "HomeToSearch") {
-            print(weather)
             let vc = segue.destination as! WeatherViewController
             vc.weather = weather
             vc.location = location

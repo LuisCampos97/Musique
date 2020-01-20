@@ -22,6 +22,8 @@
 		747534642386E73800943FF7 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747534632386E73800943FF7 /* CustomTextField.swift */; };
 		7487BC9923D5573900642900 /* AlbumsArtistDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7487BC9823D5573900642900 /* AlbumsArtistDetailsCollectionViewCell.swift */; };
 		7487BC9B23D5579400642900 /* ArtistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7487BC9A23D5579400642900 /* ArtistTableViewCell.swift */; };
+		74CBFF3B23D66887000982AF /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CBFF3A23D66887000982AF /* Playlist.swift */; };
+		74CBFF3D23D66E0C000982AF /* WeatherTracksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CBFF3C23D66E0C000982AF /* WeatherTracksTableViewCell.swift */; };
 		74D7435C23D60B1C004F1EA1 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D7435A23D60B1C004F1EA1 /* FavoritesViewController.swift */; };
 		74D7435D23D60B1C004F1EA1 /* FavouritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D7435B23D60B1C004F1EA1 /* FavouritesCollectionViewCell.swift */; };
 		74E38D0323D22224000012A8 /* ArtistDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E38D0223D22224000012A8 /* ArtistDetailsViewController.swift */; };
@@ -90,6 +92,8 @@
 		747534632386E73800943FF7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		7487BC9823D5573900642900 /* AlbumsArtistDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsArtistDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
 		7487BC9A23D5579400642900 /* ArtistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTableViewCell.swift; sourceTree = "<group>"; };
+		74CBFF3A23D66887000982AF /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		74CBFF3C23D66E0C000982AF /* WeatherTracksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTracksTableViewCell.swift; sourceTree = "<group>"; };
 		74D7435A23D60B1C004F1EA1 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		74D7435B23D60B1C004F1EA1 /* FavouritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCollectionViewCell.swift; sourceTree = "<group>"; };
 		74E38D0223D22224000012A8 /* ArtistDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailsViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +205,7 @@
 				17C83043239028D300C568B6 /* EditPasswordViewController.swift */,
 				74FE4D0523CE44F8005226C6 /* MainTabViewController.swift */,
 				D0FBD6AE23D62BCA000EA21F /* WeatherViewController.swift */,
+				74CBFF3C23D66E0C000982AF /* WeatherTracksTableViewCell.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 				74FE4D1023CE6D20005226C6 /* Track.swift */,
 				74FE4D1223CE6EFA005226C6 /* Artist.swift */,
 				74FE4D1423CE6F04005226C6 /* Album.swift */,
+				74CBFF3A23D66887000982AF /* Playlist.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -598,6 +604,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74D7435C23D60B1C004F1EA1 /* FavoritesViewController.swift in Sources */,
+				74CBFF3B23D66887000982AF /* Playlist.swift in Sources */,
 				74D7435D23D60B1C004F1EA1 /* FavouritesCollectionViewCell.swift in Sources */,
 				74FE4D0A23CE66CA005226C6 /* SearchTableViewController.swift in Sources */,
 				74FEA7FE237C38B7000770D7 /* CustomButton.swift in Sources */,
@@ -630,6 +637,7 @@
 				7445EBD5239958490033F548 /* SelectFavouriteArtistsViewController.swift in Sources */,
 				74E38D0323D22224000012A8 /* ArtistDetailsViewController.swift in Sources */,
 				74FE4D1523CE6F04005226C6 /* Album.swift in Sources */,
+				74CBFF3D23D66E0C000982AF /* WeatherTracksTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
