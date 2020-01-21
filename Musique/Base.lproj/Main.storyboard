@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f4R-y9-ccz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oIq-xE-B8R">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Musique" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="Musique" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,6 +63,20 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="515.94202898550725" y="140.625"/>
+        </scene>
+        <!--App Container View Controller-->
+        <scene sceneID="Njj-A6-J4r">
+            <objects>
+                <viewController id="oIq-xE-B8R" customClass="AppContainerViewController" customModule="Musique" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0hT-KN-p5t">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="s3B-bm-yUj"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RNk-a4-GUb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="505" y="-721"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="hAD-7C-m7l">
@@ -412,7 +426,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FqT-Fh-x72">
-                                <rect key="frame" x="325" y="10" width="40.000000000000114" height="40.000000000000114"/>
+                                <rect key="frame" x="325" y="10" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="BVP-3D-Lri"/>
                                     <constraint firstAttribute="height" constant="40" id="iNG-CP-0zU"/>
@@ -484,7 +498,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TP-R3-6Sy">
-                                <rect key="frame" x="329" y="10" width="40.000000000000114" height="40.000000000000114"/>
+                                <rect key="frame" x="329" y="10" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="TRT-lp-VBY"/>
                                     <constraint firstAttribute="width" constant="40" id="arf-L3-bys"/>
@@ -516,14 +530,14 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopTrackCell" id="NgH-pH-FS4" customClass="ArtistDetailsTableViewCell" customModule="Musique" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="343" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NgH-pH-FS4" id="5eg-gl-Rnl">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S04-nQ-nzl">
-                                                    <rect key="frame" x="15" y="11" width="220" height="21.5"/>
+                                                    <rect key="frame" x="15" y="11" width="220" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="220" id="Izu-MB-ed5"/>
                                                     </constraints>
@@ -1481,7 +1495,7 @@
                                     <outlet property="delegate" destination="7Vd-J9-adM" id="dPm-OD-SRT"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eED-ER-Tmd">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eED-ER-Tmd" customClass="CustomButton" customModule="Musique" customModuleProvider="target">
                                 <rect key="frame" x="144" y="606" width="86" height="41"/>
                                 <color key="backgroundColor" red="0.76529437303543091" green="0.16444522142410278" blue="0.16235947608947754" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -1783,7 +1797,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="LeU-C3-wlN">
             <objects>
-                <tabBarController modalPresentationStyle="fullScreen" id="f4R-y9-ccz" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="f4R-y9-ccz" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="5Yk-ee-aDY"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jcg-Iz-uOw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -1811,13 +1825,41 @@
                     <view key="view" contentMode="scaleToFill" id="Csa-J5-pF0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ndu-Uv-bVT" customClass="CustomButton" customModule="Musique" customModuleProvider="target">
+                                <rect key="frame" x="102.5" y="500" width="170" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="Id3-Ip-BsX"/>
+                                    <constraint firstAttribute="height" constant="44" id="ihN-qn-Y0o"/>
+                                </constraints>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" red="0.84307867288589478" green="0.17897006869316101" blue="0.17947384715080261" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutPressed:" destination="pVc-qh-DHY" eventType="touchUpInside" id="0OT-Je-GTa"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAZ-aT-RZg">
+                                <rect key="frame" x="156" y="279" width="62" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ndu-Uv-bVT" firstAttribute="centerX" secondItem="I2X-QS-jUb" secondAttribute="centerX" id="LSm-84-0PG"/>
+                            <constraint firstItem="LAZ-aT-RZg" firstAttribute="centerX" secondItem="I2X-QS-jUb" secondAttribute="centerX" id="UZy-Px-g7C"/>
+                            <constraint firstItem="Ndu-Uv-bVT" firstAttribute="top" secondItem="LAZ-aT-RZg" secondAttribute="bottom" constant="197" id="ZEK-u6-PWt"/>
+                            <constraint firstItem="I2X-QS-jUb" firstAttribute="bottom" secondItem="Ndu-Uv-bVT" secondAttribute="bottom" constant="30" id="dZY-X3-abT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="I2X-QS-jUb"/>
                     </view>
                     <navigationItem key="navigationItem" id="Dwt-LD-chg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ih-Az-d44" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5746" y="-157"/>
+            <point key="canvasLocation" x="5744.8000000000002" y="-157.87106446776613"/>
         </scene>
         <!--Register Complete View Controller-->
         <scene sceneID="yPs-5w-3KR">

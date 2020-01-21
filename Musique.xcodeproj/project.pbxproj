@@ -49,6 +49,8 @@
 		74FEA7FE237C38B7000770D7 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FEA7FD237C38B7000770D7 /* CustomButton.swift */; };
 		8308B9F5CABB2FC8D1045F45 /* Pods_Musique.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 765A16B67A878B537BAC9DE8 /* Pods_Musique.framework */; };
 		CCA7B8378BADB94CD387F8D2 /* Pods_Musique_MusiqueUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 626D6DF392C81FE5786D60EB /* Pods_Musique_MusiqueUITests.framework */; };
+		D021371A23D69DF1009CE9C7 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D021371823D69DEF009CE9C7 /* AppManager.swift */; };
+		D021371B23D69DF1009CE9C7 /* AppContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D021371923D69DF0009CE9C7 /* AppContainerViewController.swift */; };
 		D084CF4523D22C3900C05BCA /* SelectFavouriteArtistsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D084CF4423D22C3900C05BCA /* SelectFavouriteArtistsCollectionViewCell.swift */; };
 		D0BEA88023D5BEFD00DBA263 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BEA87F23D5BEFD00DBA263 /* HomeCollectionViewCell.swift */; };
 		D0FBD6AF23D62BCA000EA21F /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FBD6AE23D62BCA000EA21F /* WeatherViewController.swift */; };
@@ -129,6 +131,8 @@
 		B23F0D325E392BE23DA5948F /* Pods-MusiqueTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusiqueTests.release.xcconfig"; path = "Target Support Files/Pods-MusiqueTests/Pods-MusiqueTests.release.xcconfig"; sourceTree = "<group>"; };
 		B88046CFC4CAD26FB223AD6B /* Pods-Musique.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musique.debug.xcconfig"; path = "Target Support Files/Pods-Musique/Pods-Musique.debug.xcconfig"; sourceTree = "<group>"; };
 		C950DBEF7C2AAD4D72050C49 /* Pods-MusiqueTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusiqueTests.debug.xcconfig"; path = "Target Support Files/Pods-MusiqueTests/Pods-MusiqueTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D021371823D69DEF009CE9C7 /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		D021371923D69DF0009CE9C7 /* AppContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContainerViewController.swift; sourceTree = "<group>"; };
 		D084CF4423D22C3900C05BCA /* SelectFavouriteArtistsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFavouriteArtistsCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0BEA87F23D5BEFD00DBA263 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0FBD6AE23D62BCA000EA21F /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
@@ -255,6 +259,8 @@
 		74FE4D0723CE6631005226C6 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				D021371923D69DF0009CE9C7 /* AppContainerViewController.swift */,
+				D021371823D69DEF009CE9C7 /* AppManager.swift */,
 				7445EBD4239958490033F548 /* SelectFavouriteArtistsViewController.swift */,
 				D084CF4423D22C3900C05BCA /* SelectFavouriteArtistsCollectionViewCell.swift */,
 				7441129D2390195A00B388BD /* AgreeTermsViewController.swift */,
@@ -614,6 +620,7 @@
 				7441129E2390195A00B388BD /* AgreeTermsViewController.swift in Sources */,
 				74E4988E23D1226900C3EB42 /* AlbumDetailsViewController.swift in Sources */,
 				74E4989023D13C2C00C3EB42 /* AlbumDetailsTableViewCell.swift in Sources */,
+				D021371B23D69DF1009CE9C7 /* AppContainerViewController.swift in Sources */,
 				7487BC9923D5573900642900 /* AlbumsArtistDetailsCollectionViewCell.swift in Sources */,
 				74E4989223D1F0DD00C3EB42 /* Utils.swift in Sources */,
 				D0BEA88023D5BEFD00DBA263 /* HomeCollectionViewCell.swift in Sources */,
@@ -630,6 +637,7 @@
 				747534642386E73800943FF7 /* CustomTextField.swift in Sources */,
 				743152B023CFB0D8000F485F /* TrackTableViewCell.swift in Sources */,
 				D084CF4523D22C3900C05BCA /* SelectFavouriteArtistsCollectionViewCell.swift in Sources */,
+				D021371A23D69DF1009CE9C7 /* AppManager.swift in Sources */,
 				745CDDFA23D0CD5D004AA168 /* TrackDetailsViewController.swift in Sources */,
 				74FE4D1323CE6EFA005226C6 /* Artist.swift in Sources */,
 				7487BC9B23D5579400642900 /* ArtistTableViewCell.swift in Sources */,
