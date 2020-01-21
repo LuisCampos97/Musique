@@ -38,7 +38,7 @@ class ArtistDetailsViewController: UIViewController, UITableViewDataSource, UITa
         self.literalHighlightedStar = UIImage(named: "highlightedStar")!
         
         
-        urlAlbums = "https://api.deezer.com/artist/\(String(artist!.idFromAPI))/albums&limit=3"
+        urlAlbums = "https://api.deezer.com/artist/\(String(artist!.idFromAPI))/albums"
         urlTopTracks = "https://api.deezer.com/artist/\(String(artist!.idFromAPI))/top"
         
         //MARK: Search in API the artist's albums
@@ -104,6 +104,7 @@ class ArtistDetailsViewController: UIViewController, UITableViewDataSource, UITa
             favourtieArtistsRef.updateData([
                 "favouriteArtists": FieldValue.arrayUnion([artist?.idFromAPI])
             ])
+            showToast(message: "\(artist!.name) added to your favourites")
         }
         else {
             print("fica vazio")
@@ -111,7 +112,8 @@ class ArtistDetailsViewController: UIViewController, UITableViewDataSource, UITa
             favourtieArtistsRef.updateData([
                 "favouriteArtists": FieldValue.arrayRemove([artist?.idFromAPI])
             ])
-            
+            showToast(message: "\(artist!.name) removed from your favourites")
+
         }
         
 
