@@ -275,7 +275,7 @@ class FavoritesViewController: UIViewController, UICollectionViewDataSource, UIC
             albumIndex = indexPath.row
             self.performSegue(withIdentifier: "FavouritesToAlbumSegue", sender: self)
         }
-        else {
+        if collectionView == self.favouriteTracksCollectionView {
             trackIndex = indexPath.row
             self.performSegue(withIdentifier: "FavouritesToTrackSegue", sender: self)
         }

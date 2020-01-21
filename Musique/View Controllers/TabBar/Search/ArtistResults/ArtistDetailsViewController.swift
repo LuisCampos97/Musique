@@ -38,7 +38,7 @@ class ArtistDetailsViewController: UIViewController, UITableViewDataSource, UITa
         self.literalHighlightedStar = UIImage(named: "highlightedStar")!
         
         
-        urlAlbums = "https://api.deezer.com/artist/\(String(artist!.idFromAPI))/albums&limit=3"
+        urlAlbums = "https://api.deezer.com/artist/\(String(artist!.idFromAPI))/albums"
         urlTopTracks = "https://api.deezer.com/artist/\(String(artist!.idFromAPI))/top"
         
         //MARK: Search in API the artist's albums
@@ -231,11 +231,10 @@ class ArtistDetailsViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCell", for: indexPath) as? AlbumsArtistDetailsCollectionViewCell
-        
-        let album = albums[indexPath.row]
-        cell!.albumCover.image = album.cover
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ArtistAlbumsCell", for: indexPath) as? ArtistAlbumsCollectionViewCell
+        cell?.artistAlbumImageView.layer.cornerRadius = 12
+        cell?.artistAlbumImageView.image = self.albums[indexPath.row].cover
+        cell?.artistAlbumLabel.text = self.albums[indexPath.row].name
         return cell!
     }
     
@@ -251,7 +250,7 @@ class ArtistDetailsViewController: UIViewController, UITableViewDataSource, UITa
             tdvc.track = topTracks[indexPathTableView!.row]
         } else {
             //Data to send from CollectionView
-            let cell =    sender as! AlbumsArtistDetailsCollectionViewCell
+            let cell =    sender as! ArtistAlbumsCollectionViewCell
             let indexPathCollectionView = self.collectionVIew.indexPath(for: cell)
             
             let adbc = segue.destination as! AlbumDetailsViewController

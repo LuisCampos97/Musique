@@ -145,4 +145,10 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.parseDataPlaylist(JSONData: response.data!)
         })
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let indexPathTrack = self.tableView.indexPathForSelectedRow
+        let vcTrack = segue.destination as! TrackDetailsViewController
+        vcTrack.track = tracks[indexPathTrack!.row]
+    }
 }

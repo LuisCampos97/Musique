@@ -178,7 +178,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             albumIndex = indexPath.row
             self.performSegue(withIdentifier: "HomeToAlbumSegue", sender: self)
         }
-        else {
+        if collectionView == self.topTracksCollectionView {
             trackIndex = indexPath.row
             self.performSegue(withIdentifier: "HomeToTrackSegue", sender: self)
         }
