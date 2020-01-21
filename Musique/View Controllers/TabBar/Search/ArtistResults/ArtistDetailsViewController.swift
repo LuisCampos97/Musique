@@ -104,6 +104,7 @@ class ArtistDetailsViewController: UIViewController, UITableViewDataSource, UITa
             favourtieArtistsRef.updateData([
                 "favouriteArtists": FieldValue.arrayUnion([artist?.idFromAPI])
             ])
+            showToast(message: "\(artist!.name) added to your favourites")
         }
         else {
             print("fica vazio")
@@ -111,7 +112,8 @@ class ArtistDetailsViewController: UIViewController, UITableViewDataSource, UITa
             favourtieArtistsRef.updateData([
                 "favouriteArtists": FieldValue.arrayRemove([artist?.idFromAPI])
             ])
-            
+            showToast(message: "\(artist!.name) removed from your favourites")
+
         }
         
 

@@ -162,6 +162,8 @@ class AlbumDetailsViewController: UIViewController, UITableViewDataSource, UITab
             favourtieAlbumsRef.updateData([
                 "favouriteAlbums": FieldValue.arrayUnion([album?.idFromAPI])
             ])
+            showToast(message: "\(album!.name) added to your favourites")
+
         }
         else {
             print("fica vazio")
@@ -169,6 +171,7 @@ class AlbumDetailsViewController: UIViewController, UITableViewDataSource, UITab
             favourtieAlbumsRef.updateData([
                 "favouriteAlbums": FieldValue.arrayRemove([album?.idFromAPI])
             ])
+            showToast(message: "\(album!.name) removed from your favourites")
             
         }
         
@@ -181,3 +184,4 @@ class AlbumDetailsViewController: UIViewController, UITableViewDataSource, UITab
         vc.track = tracks[indexPath!]
     }
 }
+
